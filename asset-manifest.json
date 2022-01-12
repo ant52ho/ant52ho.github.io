@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2aedec5e.css",
+    "main.js": "/static/js/main.ce3eab8f.js",
+    "static/js/787.949ba037.chunk.js": "/static/js/787.949ba037.chunk.js",
+    "static/media/anthonyskating.jpg": "/static/media/anthonyskating.f48604e777084de54d1f.jpg",
+    "static/media/stereo imaging desc.png": "/static/media/stereo imaging desc.adbcc06e8ef97b32ea5e.png",
+    "static/media/Maze desc.png": "/static/media/Maze desc.0ff1c68cfb3fff150671.png",
+    "static/media/deflation.jpg": "/static/media/deflation.18f338c257b485bca28e.jpg",
+    "static/media/profilepic.jpg": "/static/media/profilepic.58ebdc512c4a3d62d714.jpg",
+    "static/media/deflation-bg.jpg": "/static/media/deflation-bg.3189121beb87139f8550.jpg",
+    "static/media/maze-bg.jpg": "/static/media/maze-bg.d4030093d3781c4f8e90.jpg",
+    "static/media/stereo-bg.jpg": "/static/media/stereo-bg.007c0c3903a3a478532e.jpg",
+    "static/media/AnthonyHo.pdf": "/static/media/AnthonyHo.72a777ca409f62ec96b4.pdf",
+    "index.html": "/index.html",
+    "main.2aedec5e.css.map": "/static/css/main.2aedec5e.css.map",
+    "main.ce3eab8f.js.map": "/static/js/main.ce3eab8f.js.map",
+    "787.949ba037.chunk.js.map": "/static/js/787.949ba037.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2aedec5e.css",
+    "static/js/main.ce3eab8f.js"
+  ]
+}
