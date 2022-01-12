@@ -10,7 +10,7 @@ const Cover = () => {
                 <a href={resume} target='blank'><h3>Resume</h3></a>
             </div>
             <div className="cover">
-                <h1>Hello! I'm Anthony.</h1>
+                <h1>Hello joules! I'm Anthony.</h1>
                 <img src={profilepic} alt="profile" />
                 <h2></h2>
                 <h1>Scroll down to learn more about me.</h1>
