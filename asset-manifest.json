@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.2aedec5e.css",
-    "main.js": "/static/js/main.1cab64bb.js",
+    "main.css": "/static/css/main.b1021ef0.css",
+    "main.js": "/static/js/main.0afcb20d.js",
     "static/js/787.949ba037.chunk.js": "/static/js/787.949ba037.chunk.js",
     "static/media/anthonyskating.jpg": "/static/media/anthonyskating.f48604e777084de54d1f.jpg",
     "static/media/stereo imaging desc.png": "/static/media/stereo imaging desc.adbcc06e8ef97b32ea5e.png",
@@ -13,12 +13,12 @@
     "static/media/stereo-bg.jpg": "/static/media/stereo-bg.007c0c3903a3a478532e.jpg",
     "static/media/AnthonyHo.pdf": "/static/media/AnthonyHo.72a777ca409f62ec96b4.pdf",
     "index.html": "/index.html",
-    "main.2aedec5e.css.map": "/static/css/main.2aedec5e.css.map",
-    "main.1cab64bb.js.map": "/static/js/main.1cab64bb.js.map",
+    "main.b1021ef0.css.map": "/static/css/main.b1021ef0.css.map",
+    "main.0afcb20d.js.map": "/static/js/main.0afcb20d.js.map",
     "787.949ba037.chunk.js.map": "/static/js/787.949ba037.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2aedec5e.css",
-    "static/js/main.1cab64bb.js"
+    "static/css/main.b1021ef0.css",
+    "static/js/main.0afcb20d.js"
   ]
 }
