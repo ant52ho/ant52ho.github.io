@@ -1,0 +1,14 @@
+.border-b {
+    border: 1px black solid;
+}
+
+.imgScale {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.aboutLogo {
+    width: 2em;
+    height: auto;
+    margin-left: 2em;
+}
