@@ -11,7 +11,7 @@ const About = () => {
     <>
       <Container fluid className="pt-5 border-b">
         <Row>
-          <h3>About</h3>
+          <h1>About</h1>
         </Row>
         <Row className="flex-md-row-reverse border-b">
           <Col

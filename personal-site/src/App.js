@@ -14,6 +14,7 @@ function App() {
       <div className="content">
         <Cover />
         <About />
+        <Projects />
         <Cover />
       </div>
       {/* <header className="App-header">

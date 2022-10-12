@@ -1,0 +1,8 @@
+.project {
+    min-height: 100px;
+    margin: 20px 0px;
+    padding: 30px 20px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff
+    /* background-image: url("../images/yorushika banner cropped.jpg"); */
+}
