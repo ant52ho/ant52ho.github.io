@@ -16,10 +16,10 @@ const Project = () => {
         <Container className="project border">
           <div>
             <Row className="">
-              <h4>Linked title</h4>
-              <p1 className="mt-1">Brief subtitle</p1>
+              <h4 className="m-0">Linked title</h4>
+              <p1 className="">Date</p1>
+              <p1 className="mt-2">Brief subtitle</p1>
               <Technologies />
-              <p1 className="mt-2">Date</p1>
             </Row>
           </div>
         </Container>

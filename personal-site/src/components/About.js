@@ -33,7 +33,7 @@ const About = () => {
               <AiFillMail className="aboutLogo" />
               <AiFillLinkedin className="aboutLogo" />
               <AiFillGithub className="aboutLogo" />
-              <GrDocumentPdf className="aboutLogo" />
+              <GrDocumentPdf className="aboutLogo m-0" />
             </Container>
           </Col>
           <Col xs={12} md={4} className="d-flex align-items-center">
