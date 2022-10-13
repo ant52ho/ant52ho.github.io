@@ -55,6 +55,9 @@ const MyNavbar = () => {
                     <Nav.Link className="px-4" href="#action1">
                       Blog
                     </Nav.Link>
+                    <Nav.Link className="px-4" href="#action1">
+                      Resume
+                    </Nav.Link>
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>

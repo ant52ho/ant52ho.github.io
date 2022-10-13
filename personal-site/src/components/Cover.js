@@ -17,13 +17,13 @@ const Cover = () => {
               <h1 className="py-1 display-3">Anthony Ho</h1>
               <div className="py-4 d-flex justify-content-start">
                 <a href="#" className="cardLink">
-                  <div className="underline">About</div>
-                </a>
-                <a href="#" className="cardLink">
                   <div className="underline">Experiences</div>
                 </a>
                 <a href="#" className="cardLink">
                   <div className="underline">Projects</div>
+                </a>
+                <a href="#" className="cardLink">
+                  <div className="underline">Resume</div>
                 </a>
               </div>
             </div>

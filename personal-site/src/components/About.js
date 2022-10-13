@@ -36,7 +36,11 @@ const About = () => {
               <GrDocumentPdf className="aboutLogo m-0" />
             </Container>
           </Col>
-          <Col xs={12} md={4} className="d-flex align-items-center">
+          <Col
+            xs={12}
+            md={4}
+            className="d-flex align-items-center justify-content-center"
+          >
             <img src={logo} className="imgScale border-b"></img>
           </Col>
         </Row>

@@ -1,16 +1,40 @@
 import "./Projects.css";
 import Project from "./Project";
 import Container from "react-bootstrap/Container";
+import yorushika from "../images/yorushikaBannerCropped.jpg";
+import reactLogo from "../logo.svg";
 
 const Projects = () => {
+  // title, date, subtitle, articleLink, bgImage
   return (
     <>
       <Container fluid className="pt-5 border-b">
         <h1>Projects</h1>
-        <p1>Tap on each to learn more!</p1>
-        <Project></Project>
-        <Project></Project>
-        <Project></Project>
+        <p>Tap on each to learn more!</p>
+        <Project
+          title="Project 1"
+          date="Date 1"
+          subtitle="Subtitle 1"
+          articleLink="google.com"
+          technologies={["python", "javascript", "html", "css"]}
+          bgImage={yorushika}
+        />
+        <Project
+          title="Project 2"
+          date="Date 2"
+          subtitle="Subtitle 2"
+          articleLink="google.com"
+          technologies={["python", "javascript"]}
+          bgImage={reactLogo}
+        />
+        <Project
+          title="Project 3"
+          date="Date 3"
+          subtitle="Subtitle 3"
+          articleLink="google.com"
+          technologies={["html", "css"]}
+          bgImage={yorushika}
+        />
       </Container>
     </>
   );

@@ -5,24 +5,33 @@ import "./Project.css";
 import Technologies from "./Technologies";
 import imgfile from "../images/yorushikaBannerCropped.jpg";
 
-const Project = () => {
+const Project = ({
+  title,
+  date,
+  subtitle,
+  articleLink,
+  technologies,
+  bgImage,
+}) => {
   const sectionStyle = {
-    backgroundImage: `url(${imgfile})`,
+    backgroundImage: `url(${bgImage})`,
   };
 
   return (
     <>
       <div style={sectionStyle}>
-        <Container className="project border">
-          <div>
-            <Row className="">
-              <h4 className="m-0">Linked title</h4>
-              <p1 className="">Date</p1>
-              <p1 className="mt-2">Brief subtitle</p1>
-              <Technologies />
-            </Row>
-          </div>
-        </Container>
+        <a className="projectLink" href={articleLink}>
+          <Container className="project border">
+            <div>
+              <Row className="">
+                <h4 className="m-0">{title}</h4>
+                <p className="m-0">{date}</p>
+                <p className="m-0 mt-2">{subtitle}</p>
+                <Technologies technologies={technologies} />
+              </Row>
+            </div>
+          </Container>
+        </a>
       </div>
     </>
   );
