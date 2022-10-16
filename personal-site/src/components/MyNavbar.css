@@ -3,11 +3,12 @@
 }
 
 .navContainer {
-    max-width: 900px;
+    max-width: 1000px;
     margin: auto
 }
 
 .navWrap {
     width: 100%;
     border: 1px black solid;
+    z-index: 1;
 }

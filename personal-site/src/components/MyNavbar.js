@@ -47,10 +47,13 @@ const MyNavbar = () => {
                       About
                     </Nav.Link>
                     <Nav.Link className="px-4" href="#action1">
-                      Experiences
+                      Experience
                     </Nav.Link>
                     <Nav.Link className="px-4" href="#action1">
                       Projects
+                    </Nav.Link>
+                    <Nav.Link className="px-4" href="#action1">
+                      Contact
                     </Nav.Link>
                     <Nav.Link className="px-4" href="#action1">
                       Blog

@@ -1,3 +1,33 @@
 .technology {
     padding-right: 10px;
 }
+
+.dot {
+    height: 11px;
+    width: 11px;
+    margin-right: 2px;
+    background-color: #bbb;
+    border: 0.2px black solid;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+.python {
+  background-color: #4B8BBE;
+  border: 1px solid #306998 ;
+}
+
+.javascript {
+  background-color: #f0db4f;
+  border: 1px solid #cebb44;
+}
+
+.html {
+  background-color: #f06529;
+  border: 1px solid #e34c26;
+}
+
+.css {
+  background-color: #9370DB;
+  border: 1px solid #8A2BE2;
+}

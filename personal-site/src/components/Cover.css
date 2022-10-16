@@ -23,13 +23,21 @@
 }
 
 .cardLink {
-  font-size: 1.05em;
+  font-size: calc(0.6rem + 0.8vw);
   line-height: 1;
   padding-right: 8px;
   color: black;
   text-decoration: none;
   /* text-decoration-color: blue;
   text-decoration-thickness: 0.2em; */
+}
+
+.coverTitle {
+  font-size: calc(1.5rem + 1vw);
+}
+
+.coverSubtitle {
+  font-size: calc(2.5rem + 0.7vw);
 }
 
 .imgScale {
@@ -55,4 +63,6 @@
   background-size: 40px 40px;
 }
 
-
+.coverImage {
+  max-width: 40%;
+}
