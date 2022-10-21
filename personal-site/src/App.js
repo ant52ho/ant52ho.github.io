@@ -7,19 +7,20 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Cover from "./components/Cover";
 import Experiences from "./components/Experiences";
-import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="App">
-      <MyNavbar />
       <div className="content">
         <Cover />
+        <hr />
         <About />
+        <hr />
         <Experiences />
+        <hr />
         <Projects />
-        <Contact />
-        <Cover />
+        <hr />
       </div>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

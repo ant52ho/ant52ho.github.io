@@ -9,7 +9,7 @@ import logo from "../logo.svg";
 const Cover = () => {
   return (
     <>
-      <Container className="coverContainer border d-flex align-items-center justify-content-center">
+      <Container className="coverContainer d-flex align-items-center justify-content-center">
         <div className="coolBorder px-3 py-5 p-md-5">
           <Container className="coverCard d-flex justify-content-center align-items-center flex-column flex-md-row">
             <div>

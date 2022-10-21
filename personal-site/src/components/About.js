@@ -9,11 +9,11 @@ import { GrDocumentPdf } from "react-icons/gr";
 const About = () => {
   return (
     <>
-      <Container fluid className="pt-5 border-b">
+      <Container fluid className="py-2">
         <Row>
           <h1>About</h1>
         </Row>
-        <Row className="flex-md-row-reverse border-b">
+        <Row className="flex-md-row-reverse">
           <Col
             xs={12}
             md={8}

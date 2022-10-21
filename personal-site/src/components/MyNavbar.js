@@ -53,9 +53,6 @@ const MyNavbar = () => {
                       Projects
                     </Nav.Link>
                     <Nav.Link className="px-4" href="#action1">
-                      Contact
-                    </Nav.Link>
-                    <Nav.Link className="px-4" href="#action1">
                       Blog
                     </Nav.Link>
                     <Nav.Link className="px-4" href="#action1">

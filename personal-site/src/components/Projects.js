@@ -9,7 +9,7 @@ const Projects = () => {
   // title, date, subtitle, articleLink, bgImage
   return (
     <>
-      <Container fluid className="pt-5 border-b">
+      <Container fluid className="py-2">
         <h1>Projects</h1>
         <p>Tap on each to learn more!</p>
         <Row className="gx-3">

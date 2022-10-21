@@ -9,7 +9,7 @@ import uwLogo from "../images/uwlogo.png";
 const Experiences = () => {
   return (
     <>
-      <Container className="border pt-5">
+      <Container className="py-2">
         <h1>Experience</h1>
         <p>haha put some experience here</p>
         {/* <div className="shadowBorder my-3"> */}
