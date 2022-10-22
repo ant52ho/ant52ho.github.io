@@ -18,3 +18,22 @@
 .oddSpacing {
     margin: 0px 0px;
 }
+
+.companyDate {
+    /* font-style: italic; */
+    color: rgb(103, 103, 103);
+    position: relative;
+    /* top: -3px; */
+}
+
+.experienceBody {
+    padding-left: 30px;
+}
+
+.experienceContent {
+    padding-right: 20px;
+}
+
+.readMore {
+    width: 100%;
+}

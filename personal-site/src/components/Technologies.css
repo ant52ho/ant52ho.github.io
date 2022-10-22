@@ -31,3 +31,28 @@
   background-color: #9370DB;
   border: 1px solid #8A2BE2;
 }
+
+.bash {
+  background-color: #818181;
+  border: 1px solid #323232;
+}
+
+.sqlite {
+  background-color: #43647e;
+  border: 1px solid #1d2b36;
+}
+
+.redis {
+  background-color: #D82C20;
+  border: 1px solid #A41E11;
+}
+
+.react {
+  background-color: #61DBFB;
+  border: 1px solid #4ba9c0;
+}
+
+.aws {
+  background-color: #FF9900;
+  border: 1px solid #c37604;
+}
