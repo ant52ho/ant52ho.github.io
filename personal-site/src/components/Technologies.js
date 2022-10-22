@@ -8,14 +8,14 @@ const Technologies = ({ technologies }) => {
 
   return (
     <>
-      <Container className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap">
         {technologies.map((technology, i) => (
           <div key={i} className="technology">
             <span className={`dot ${technology.toLowerCase()}`}></span>
             <span>{technology}</span>
           </div>
         ))}
-      </Container>
+      </div>
     </>
   );
 };

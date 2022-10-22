@@ -9,11 +9,17 @@ import uwLogo from "../images/uwlogo.png";
 const Experiences = () => {
   return (
     <>
-      <Container className="py-2">
+      <Container className="py-2 experiences" id="experiences">
         <h1>Experience</h1>
-        <p>haha put some experience here</p>
         {/* <div className="shadowBorder my-3"> */}
-        <Experience className="" logo={reactLogo} />
+        <Experience
+          className=""
+          logo={uwLogo}
+          title="Research Assistant"
+          employer="University of Waterloo"
+          date="May 2022 ~ Present"
+          technologies={["Python", "Bash", "SQLite", "Redis", "React", "AWS"]}
+        />
         {/* <hr className="m-1" /> */}
         <Experience className="" logo={uwLogo} />
         {/* <hr className="m-1" /> */}

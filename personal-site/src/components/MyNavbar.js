@@ -7,6 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import logo from "../logo.svg";
 import "./MyNavbar.css";
+import resume from "../files/f22resume.pdf";
 
 const MyNavbar = () => {
   const sizes = [false, "sm", "md", "lg", "xl", "xxl"];
@@ -41,21 +42,26 @@ const MyNavbar = () => {
                   </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <Nav className="justify-content-end flex-grow-1">
+                  <Nav className="justify-content-end flex-grow-1 navText">
                     {/* <Nav className="justify-content-between pe-3"> */}
-                    <Nav.Link className="px-4" href="#action1">
+                    {/* <a href="#about">
+                      <div className="navText border">Hello</div>
+                    </a> */}
+
+                    <Nav.Link className="px-4" href="#about">
                       About
+                      {/* <div className="navText">Hello</div> */}
                     </Nav.Link>
-                    <Nav.Link className="px-4" href="#action1">
+                    <Nav.Link className="px-4" href="#experiences">
                       Experience
                     </Nav.Link>
-                    <Nav.Link className="px-4" href="#action1">
+                    <Nav.Link className="px-4" href="#projects">
                       Projects
                     </Nav.Link>
                     <Nav.Link className="px-4" href="#action1">
                       Blog
                     </Nav.Link>
-                    <Nav.Link className="px-4" href="#action1">
+                    <Nav.Link className="px-4" href={resume}>
                       Resume
                     </Nav.Link>
                   </Nav>

@@ -2,7 +2,7 @@
     border: 1px black solid;
 }
 
-.imgScale {
+.aboutImgScale {
     max-width: 100%;
     max-height: 100%;
 }
@@ -11,4 +11,25 @@
     width: 2em;
     height: auto;
     margin-right: 1em;
+}
+
+.about {
+    scroll-margin-top: 70px;
+}
+
+.resumeLink {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.about a{
+    color: rgb(33,37,41);
+}
+.about a:hover{
+    color: rgb(73, 153, 245);
+}
+
+.aboutImgCaption {
+    font-style: italic;
+    text-align: center
 }
