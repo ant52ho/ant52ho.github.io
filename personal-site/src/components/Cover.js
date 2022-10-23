@@ -29,7 +29,10 @@ const Cover = () => {
               </div>
             </div>
             <div className="coverImage m-4">
-              <img src={pic} className="coverImgScale d-none d-md-block"></img>
+              <img
+                src={pic}
+                className="coverImgScale d-none d-md-block grow"
+              ></img>
             </div>
           </Container>
         </div>

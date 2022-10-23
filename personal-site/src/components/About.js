@@ -58,15 +58,13 @@ const About = () => {
               </a>
             </Container>
           </Col>
-          <Col
-            xs={12}
-            md={5}
-            className="d-flex flex-column align-items-center justify-content-center"
-          >
-            <img src={pic} className="aboutImgScale p-1 mt-2"></img>
-            <span className="aboutImgCaption">
-              A good day to climb Daegu's Apsan Mountain
-            </span>
+          <Col xs={12} md={5}>
+            <div className="p-2 d-flex flex-column align-items-center justify-content-center">
+              <img src={pic} className="aboutImgScale mt-2 grow"></img>
+              <span className="aboutImgCaption">
+                A good day to climb Daegu's Apsan Mountain
+              </span>
+            </div>
           </Col>
         </Row>
       </Container>

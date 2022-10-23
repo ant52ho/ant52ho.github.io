@@ -48,14 +48,14 @@ const Project = ({
                     {/* <div className="pt-2 pb-1 d-none d-md-block"> */}
                     <Technologies technologies={technologies} />
                   </div>
-                  <Row className="border m-auto w-100 pb-1 pt-3 px-2 gx-2">
+                  <Row className="m-auto w-100 pb-1 pt-3 px-2 gx-2">
                     <Col>
                       <Button
-                        variant="outline-secondary"
+                        variant="outline-dark"
                         className="w-100 d-flex align-items-center justify-content-center"
                         // size="lg"
                       >
-                        GitHub <AiFillGithub className="mx-2" />
+                        GitHub <AiFillGithub className="proBtn" />
                       </Button>
                     </Col>
                     <Col>
@@ -64,7 +64,7 @@ const Project = ({
                         className="w-100 d-flex align-items-center justify-content-center"
                         // size="lg"
                       >
-                        More <FaArrowRight className="mx-2" />
+                        More <FaArrowRight className="proBtn" />
                       </Button>
                     </Col>
                   </Row>
