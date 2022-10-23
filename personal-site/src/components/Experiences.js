@@ -37,7 +37,7 @@ const Experiences = () => {
           title="Stereo / Computer Vision Research Assistant"
           employer="University of Waterloo"
           date="July 2019 ~ August 2019"
-          technologies={["Python"]}
+          technologies={["Python", "OpenCV"]}
           body={`Researched, implemented stereo vision models after analyzing multiple research papers using OpenCV, resulting in a passable "ground truth" output.
           Augmented training data using OpenCV and improved the efficacy of a colleague's CNN stereo model.`}
         />
