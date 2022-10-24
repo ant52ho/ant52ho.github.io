@@ -56,3 +56,28 @@
   background-color: #FF9900;
   border: 1px solid #c37604;
 }
+
+.mongodb {
+  background-color: #4DB33D;
+  border: 1px solid #3FA037;
+}
+
+.express {
+  background-color:#cbcbcb;
+  border: 1px solid #696969
+}
+
+.gcp {
+  background-color:#4285F4;
+  border: 1px solid #1967D2;
+}
+
+.opencv {
+  background-color: #cf1f1f;
+  border: 1px solid #a71919;
+}
+
+.latex {
+  background-color: #46b63c;
+  border: 1px solid #307b29;
+}

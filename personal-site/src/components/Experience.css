@@ -4,7 +4,8 @@
 }
 
 .experienceLogoContainer {
-    border-left: 5px black solid;
+    /* border-left: 5px black solid; */
+    /* border-radius: 50px; */
     /* margin-left: 15px; */
     width: 25%;
     max-width: 120px;
@@ -13,6 +14,8 @@
 
 .shadowBorder {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 2px 15px 0 rgba(0, 0, 0, 0.15);
+    border-left: 7px black solid;
+    border-radius: 8px;
 }
 
 .oddSpacing {

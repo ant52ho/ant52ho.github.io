@@ -15,6 +15,7 @@ const Project = ({
   technologies,
   bgImage,
   body,
+  githubLink,
 }) => {
   var contentBody = body;
   if (body) {
@@ -50,13 +51,19 @@ const Project = ({
                   </div>
                   <Row className="m-auto w-100 pb-1 pt-3 px-2 gx-2">
                     <Col>
-                      <Button
-                        variant="outline-dark"
-                        className="w-100 d-flex align-items-center justify-content-center"
-                        // size="lg"
+                      <a
+                        href={githubLink}
+                        target="_blank"
+                        className="text-decoration-none"
                       >
-                        GitHub <AiFillGithub className="proBtn" />
-                      </Button>
+                        <Button
+                          variant="outline-dark"
+                          className="w-100 d-flex align-items-center justify-content-center"
+                          // size="lg"
+                        >
+                          GitHub <AiFillGithub className="proBtn" />
+                        </Button>
+                      </a>
                     </Col>
                     <Col>
                       <Button

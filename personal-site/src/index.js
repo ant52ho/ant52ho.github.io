@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import ComingSoon from "./components/ComingSoon";
 import MyNavbar from "./components/MyNavbar";
 import Footer from "./components/Footer";
 import reportWebVitals from "./reportWebVitals";
@@ -14,6 +15,7 @@ root.render(
       <MyNavbar />
       <Routes>
         <Route path="/" element={<App />} />
+        <Route path="/comingsoon" element={<ComingSoon />} />
       </Routes>
       <Footer />
     </BrowserRouter>

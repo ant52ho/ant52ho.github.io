@@ -29,7 +29,7 @@ const Experiences = () => {
           Supported a dynamic number of nodes and consistent node identification using a customized static DHCP IP assignment protocol, designed for "plug and play" immediate installation.
           Designed a Redis primary database that aggregates datapoints by time-based downsampling, increasing data storage efficiency by 1800%.
           Implemented an interactive dashboard with React + Express containing data visualization of real-time sensor data and user alerts during emergencies.`}
-          link="https://google.com"
+          link="comingsoon"
         />
         <Experience
           className=""
@@ -40,6 +40,7 @@ const Experiences = () => {
           technologies={["Python", "OpenCV"]}
           body={`Researched, implemented stereo vision models after analyzing multiple research papers using OpenCV, resulting in a passable "ground truth" output.
           Augmented training data using OpenCV and improved the efficacy of a colleague's CNN stereo model.`}
+          link="comingsoon"
         />
         {/* <Experience className="" logo={uwLogo} /> */}
       </Container>

@@ -27,7 +27,7 @@ const MyNavbar = () => {
                   className="d-inline-block align-top"
                 />{" "}
               </Navbar.Brand>
-              <Navbar.Brand href="#home">Anthony Ho</Navbar.Brand>
+              <Navbar.Brand href="/">Anthony Ho</Navbar.Brand>
               <Navbar.Toggle
                 aria-controls={`offcanvasNavbar-expand-${expand}`}
               />
@@ -48,17 +48,17 @@ const MyNavbar = () => {
                       <div className="navText border">Hello</div>
                     </a> */}
 
-                    <Nav.Link className="px-4" href="#about">
+                    <Nav.Link className="px-4" href="/#about">
                       About
                       {/* <div className="navText">Hello</div> */}
                     </Nav.Link>
-                    <Nav.Link className="px-4" href="#experiences">
+                    <Nav.Link className="px-4" href="/#experiences">
                       Experience
                     </Nav.Link>
-                    <Nav.Link className="px-4" href="#projects">
+                    <Nav.Link className="px-4" href="/#projects">
                       Projects
                     </Nav.Link>
-                    <Nav.Link className="px-4" href="#action1">
+                    <Nav.Link className="px-4" href="/comingsoon">
                       Blog
                     </Nav.Link>
                     <Nav.Link className="px-4" href={resume}>
