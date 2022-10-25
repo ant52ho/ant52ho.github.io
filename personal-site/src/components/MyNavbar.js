@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import logo from "../logo.svg";
+import logo from "../images/logo.svg";
 import "./MyNavbar.css";
 import resume from "../files/f22resume.pdf";
 
@@ -24,7 +24,7 @@ const MyNavbar = () => {
                   src={logo}
                   width="30"
                   height="30"
-                  className="d-inline-block align-top"
+                  className="d-inline-block align-top navLogo"
                 />{" "}
               </Navbar.Brand>
               <Navbar.Brand href="/">Anthony Ho</Navbar.Brand>
