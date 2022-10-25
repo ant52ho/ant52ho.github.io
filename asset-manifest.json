@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4792d972.css",
+    "main.js": "/static/js/main.435ee418.js",
+    "static/js/787.3ba5e41c.chunk.js": "/static/js/787.3ba5e41c.chunk.js",
+    "static/media/agneslakejustrev.jpg": "/static/media/agneslakejustrev.83b53472ec018510c1ee.jpg",
+    "static/media/apsan1.jpg": "/static/media/apsan1.01bc13238a77deab4f32.jpg",
+    "static/media/uwlogo.png": "/static/media/uwlogo.dc109fc2fdac2f514258.png",
+    "static/media/yorushikaBannerCropped.jpg": "/static/media/yorushikaBannerCropped.8c1c5cf56a18d4339276.jpg",
+    "static/media/f22resume.pdf": "/static/media/f22resume.cbf1081565d371109719.pdf",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.4792d972.css.map": "/static/css/main.4792d972.css.map",
+    "main.435ee418.js.map": "/static/js/main.435ee418.js.map",
+    "787.3ba5e41c.chunk.js.map": "/static/js/787.3ba5e41c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4792d972.css",
+    "static/js/main.435ee418.js"
+  ]
+}
