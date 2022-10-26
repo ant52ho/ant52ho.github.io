@@ -6,19 +6,27 @@ import ComingSoon from "./components/ComingSoon";
 import MyNavbar from "./components/MyNavbar";
 import Footer from "./components/Footer";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  HashRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
+    <HashRouter>
       <MyNavbar />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/comingsoon" element={<ComingSoon />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
+    {/* </BrowserRouter> */}
   </React.StrictMode>
 );
 
