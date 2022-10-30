@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Technologies from "./Technologies";
 import { FaArrowRight } from "react-icons/fa";
 import "./Experience.css";
+import { HashLink as Link } from "react-router-hash-link";
 
 // import reactLogo from "../logo.svg";
 // import uwLogo from "../images/uwlogo.png";
@@ -47,7 +48,7 @@ const Experience = ({
             <Technologies technologies={technologies} />
           </div>
           <div className="d-flex justify-content-end pb-1 pt-3">
-            <a href={link} target="_blank" className="readMore py-1">
+            <Link to={link} target="_blank" className="readMore py-1">
               <Button
                 variant="outline-secondary"
                 className="readMore"
@@ -55,8 +56,7 @@ const Experience = ({
               >
                 Read More <FaArrowRight />
               </Button>
-              {""}
-            </a>
+            </Link>
           </div>
         </Col>
       </Row>

@@ -47,10 +47,10 @@ const About = () => {
               <a href="mailto:anthony52ho@gmail.com">
                 <AiFillMail className="aboutLogo" />
               </a>
-              <a href="https://www.linkedin.com/in/ant52ho/">
+              <a href="https://www.linkedin.com/in/ant52ho/" target="_blank">
                 <AiFillLinkedin className="aboutLogo" />
               </a>
-              <a href="https://github.com/ant52ho">
+              <a href="https://github.com/ant52ho" target="_blank">
                 <AiFillGithub className="aboutLogo" />
               </a>
               <a href={resume} target="_blank">

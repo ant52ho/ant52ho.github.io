@@ -11,10 +11,16 @@ const Footer = () => {
           <div className="d-flex justify-content-between py-2">
             <div>© 2022 Anthony Ho</div>
             <div className="d-md-flex d-none">Built with React</div>
-            <div>
-              <AiFillGithub className="footerLogo" />
-              <AiFillLinkedin className="footerLogo mx-2" />
-              <AiFillMail className="footerLogo" />
+            <div className="footerIcons">
+              <a href="https://github.com/ant52ho" target="_blank">
+                <AiFillGithub className="footerLogo" />
+              </a>
+              <a href="https://www.linkedin.com/in/ant52ho/" target="_blank">
+                <AiFillLinkedin className="footerLogo mx-2" />
+              </a>
+              <a href="mailto:anthony52ho@gmail.com">
+                <AiFillMail className="footerLogo" />
+              </a>
             </div>
           </div>
           <div className="d-flex">Last Updated: Oct 2022</div>

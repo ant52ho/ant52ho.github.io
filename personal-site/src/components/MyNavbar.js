@@ -9,6 +9,7 @@ import logo from "../images/logo.png";
 import "./MyNavbar.css";
 import resume from "../files/f22resume.pdf";
 import { HashLink as Link } from "react-router-hash-link";
+// import { useState } from "react";
 // import { Link } from "react-router-dom";
 
 const MyNavbar = () => {

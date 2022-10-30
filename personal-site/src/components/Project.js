@@ -6,6 +6,7 @@ import "./Project.css";
 import Technologies from "./Technologies";
 import { FaArrowRight } from "react-icons/fa";
 import { AiFillGithub } from "react-icons/ai";
+import { HashLink as Link } from "react-router-hash-link";
 
 const Project = ({
   title,
@@ -66,13 +67,15 @@ const Project = ({
                     </a>
                   </Col>
                   <Col>
-                    <Button
-                      variant="outline-secondary"
-                      className="w-100 d-flex align-items-center justify-content-center"
-                      // size="lg"
-                    >
-                      More <FaArrowRight className="proBtn" />
-                    </Button>
+                    <Link to={articleLink} className="text-decoration-none">
+                      <Button
+                        variant="outline-secondary"
+                        className="w-100 d-flex align-items-center justify-content-center"
+                        // size="lg"
+                      >
+                        More <FaArrowRight className="proBtn" />
+                      </Button>
+                    </Link>
                   </Col>
                 </Row>
                 {/* <div className="d-flex justify-content-end pb-1 pt-3">
