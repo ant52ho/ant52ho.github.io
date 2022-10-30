@@ -6,8 +6,8 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import logo from "../logo.svg";
 import pic from "../images/agneslakejustrev.jpg";
-// import { Link } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
+// import { Link } from "react-router-dom";
 
 const Cover = () => {
   return (
