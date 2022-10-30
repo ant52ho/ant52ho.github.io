@@ -61,7 +61,7 @@ const About = () => {
           <Col xs={12} md={5}>
             <div className="p-2 d-flex flex-column align-items-center justify-content-center">
               <img src={pic} className="aboutImgScale mt-2 grow"></img>
-              <span className="aboutImgCaption">
+              <span className="aboutImgCaption mt-2">
                 A good day to climb Daegu's Apsan Mountain
               </span>
             </div>

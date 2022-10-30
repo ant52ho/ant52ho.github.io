@@ -5,9 +5,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import logo from "../images/logo.svg";
+import logo from "../images/logo.png";
 import "./MyNavbar.css";
 import resume from "../files/f22resume.pdf";
+import { HashLink as Link } from "react-router-hash-link";
+// import { Link } from "react-router-dom";
 
 const MyNavbar = () => {
   const sizes = [false, "sm", "md", "lg", "xl", "xxl"];
@@ -18,16 +20,20 @@ const MyNavbar = () => {
         <div className="navContainer">
           <Navbar collapseOnSelect expand={expand} bg="dark" variant="dark">
             <Container fluid className="d-flex justify-content-between">
-              <Navbar.Brand href="#home">
-                <img
-                  alt=""
-                  src={logo}
-                  width="30"
-                  height="30"
-                  className="d-inline-block align-top navLogo"
-                />{" "}
-              </Navbar.Brand>
-              <Navbar.Brand href="/">Anthony Ho</Navbar.Brand>
+              <Link to="/#home">
+                <Navbar.Brand>
+                  <img
+                    alt=""
+                    src={logo}
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-top navLogo"
+                  />{" "}
+                </Navbar.Brand>
+              </Link>
+              <Link to="/#home" className="text-decoration-none">
+                <Navbar.Brand>Anthony Ho</Navbar.Brand>
+              </Link>
               <Navbar.Toggle
                 aria-controls={`offcanvasNavbar-expand-${expand}`}
               />
@@ -38,19 +44,32 @@ const MyNavbar = () => {
               >
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                    Offcanvas
+                    Contents
                   </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <Nav className="justify-content-end flex-grow-1 navText">
+                  <Nav className="justify-content-md-end justify-content-start flex-grow-1 navText">
                     {/* <Nav className="justify-content-between pe-3"> */}
                     {/* <a href="#about">
                       <div className="navText border">Hello</div>
                     </a> */}
-
-                    <Nav.Link className="px-4" href="/#about">
+                    <Link to="/#about" className="nav-link px-4">
                       About
-                      {/* <div className="navText">Hello</div> */}
+                    </Link>
+                    <Link to="/#experiences" className="nav-link px-4">
+                      Experience
+                    </Link>
+                    <Link to="/#projects" className="nav-link px-4">
+                      Projects
+                    </Link>
+                    <Link to="/comingsoon" className="nav-link px-4">
+                      Blog
+                    </Link>
+                    <a className="nav-link px-4" href={resume} target="_blank">
+                      Resume
+                    </a>
+                    {/* <Nav.Link className="px-4" href="/#about">
+                      About
                     </Nav.Link>
                     <Nav.Link className="px-4" href="/#experiences">
                       Experience
@@ -63,7 +82,7 @@ const MyNavbar = () => {
                     </Nav.Link>
                     <Nav.Link className="px-4" href={resume}>
                       Resume
-                    </Nav.Link>
+                    </Nav.Link> */}
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>

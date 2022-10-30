@@ -14,6 +14,19 @@ const Projects = () => {
         {/* <p>Tap on each to learn more!</p> */}
         <Row className="gx-3">
           <Project
+            title="ant52ho.github.io"
+            date="Oct 2022 ~ ?"
+            subtitle=""
+            body={`A structural and visual overhual to my personal site!
+            Currently a Work in Progress.
+            Feel free to poke around or use the source code.
+            Look forward to future updates!`}
+            articleLink="https://ant52ho.github.io"
+            githubLink="https://github.com/ant52ho/ant52ho.github.io"
+            technologies={["React"]}
+            bgImage={yorushika}
+          />
+          <Project
             title="Staples Studio Startups"
             date="August 2022"
             subtitle="[HT6 Winner] A platform that connects startups' products to consumers"
@@ -22,7 +35,7 @@ const Projects = () => {
             articleLink="comingsoon"
             githubLink="https://github.com/Ket93/StaplesStartup"
             technologies={["JavaScript", "React", "Express", "MongoDB", "CSS"]}
-            bgImage={yorushika}
+            bgImage={reactLogo}
           />
           <Project
             title="Latex Matrix Solver"

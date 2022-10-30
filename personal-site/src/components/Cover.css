@@ -73,3 +73,8 @@
 
 .grow { transition: all 0.3s ease-in-out; }
 .grow:hover { transform: scale(1.05); }
+
+.coverCaption {
+  font-style: italic;
+  color:rgb(115, 115, 115)
+}

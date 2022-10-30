@@ -27,12 +27,14 @@ const Cover = () => {
                   <div className="underline">Contact</div>
                 </a>
               </div>
+              <div className="d-block d-md-none">
+                <div className="mt-1">Visit on desktop for a</div>
+                <div className="">better experience!</div>
+              </div>
+              <div className="coverCaption mt-2">**WIP**</div>
             </div>
-            <div className="coverImage m-4">
-              <img
-                src={pic}
-                className="coverImgScale d-none d-md-block grow"
-              ></img>
+            <div className="coverImage m-4 d-none d-md-block">
+              <img src={pic} className="coverImgScale grow"></img>
             </div>
           </Container>
         </div>
