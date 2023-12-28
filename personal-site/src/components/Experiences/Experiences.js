@@ -1,10 +1,10 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Experience from "./Experience";
+import Experience from "components/Experience/Experience.js";
 import "./Experiences.css";
 
-import reactLogo from "../logo.svg";
-import uwLogo from "../images/uwlogo.png";
+import reactLogo from "logo.svg";
+import uwLogo from "images/uwlogo.png";
 
 const Experiences = () => {
   return (

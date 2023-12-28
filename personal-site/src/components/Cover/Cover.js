@@ -4,8 +4,8 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-import logo from "../logo.svg";
-import pic from "../images/agneslakejustrev.jpg";
+import logo from "logo.svg";
+import pic from "images/agneslakejustrev.jpg";
 import { HashLink as Link } from "react-router-hash-link";
 // import { Link } from "react-router-dom";
 

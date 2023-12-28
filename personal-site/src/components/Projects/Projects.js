@@ -1,8 +1,8 @@
 import "./Projects.css";
-import Project from "./Project";
+import Project from "components/Project/Project.js";
 import Container from "react-bootstrap/Container";
-import yorushika from "../images/yorushikaBannerCropped.jpg";
-import reactLogo from "../logo.svg";
+import yorushika from "images/yorushikaBannerCropped.jpg";
+import reactLogo from "logo.svg";
 import Row from "react-bootstrap/Row";
 
 const Projects = () => {

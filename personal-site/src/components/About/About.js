@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./About.css";
-import logo from "../logo.svg";
+import logo from "logo.svg";
 import {
   AiFillMail,
   AiFillLinkedin,
@@ -10,9 +10,9 @@ import {
   AiFillFilePdf,
 } from "react-icons/ai";
 // import { GrDocumentPdf } from "react-icons/gr";
-import pic from "../images/apsan1.jpg";
-import resume from "../files/f22resume.pdf";
-import yorushika from "../images/yorushikaBannerCropped.jpg";
+import pic from "images/apsan1.jpg";
+import resume from "files/f22resume.pdf";
+import yorushika from "images/yorushikaBannerCropped.jpg";
 
 const About = () => {
   return (

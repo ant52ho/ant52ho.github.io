@@ -3,7 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import "./Project.css";
-import Technologies from "./Technologies";
+import Technologies from "components/Technologies/Technologies.js";
 import { FaArrowRight } from "react-icons/fa";
 import { AiFillGithub } from "react-icons/ai";
 import { HashLink as Link } from "react-router-hash-link";

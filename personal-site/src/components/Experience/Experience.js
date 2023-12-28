@@ -1,7 +1,7 @@
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
-import Technologies from "./Technologies";
+import Technologies from "components/Technologies/Technologies.js";
 import { FaArrowRight } from "react-icons/fa";
 import "./Experience.css";
 import { HashLink as Link } from "react-router-hash-link";
