@@ -5,6 +5,7 @@ import App from "./App";
 import ComingSoon from "./components/ComingSoon/ComingSoon.js";
 import MyNavbar from "./components/MyNavbar/MyNavbar.js";
 import Footer from "./components/Footer/Footer.js";
+import Blog from "./components/Blog/Blog.js";
 import reportWebVitals from "./reportWebVitals";
 import {
   BrowserRouter,
@@ -23,6 +24,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/comingsoon" element={<ComingSoon />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
       <Footer />
     </HashRouter>
