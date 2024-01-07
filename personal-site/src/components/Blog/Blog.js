@@ -3,8 +3,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 const Blog = () => {
+  const navigate = useNavigate();
+  function onSignupClick() {
+    navigate("/login");
+  }
+
   return (
     <>
       <div className="vh-100">
@@ -29,7 +35,9 @@ const Blog = () => {
                 <Card.Body>
                   <Card.Title>Exclusive Content</Card.Title>
                   <Card.Text>O_o</Card.Text>
-                  <Button variant="primary">??</Button>
+                  <Button variant="primary" onClick={() => onSignupClick()}>
+                    ??
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
