@@ -6,6 +6,7 @@ import ComingSoon from "./components/ComingSoon/ComingSoon.js";
 import MyNavbar from "./components/MyNavbar/MyNavbar.js";
 import Footer from "./components/Footer/Footer.js";
 import Blog from "./components/Blog/Blog.js";
+import Register from "./components/Register/Register.js";
 import reportWebVitals from "./reportWebVitals";
 import {
   BrowserRouter,
@@ -30,10 +31,11 @@ root.render(
       <HashRouter>
         <MyNavbar />
         <Routes>
-          <Route path="/" element={<App />} />
           <Route path="/comingsoon" element={<ComingSoon />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<App />} />
         </Routes>
         <Footer />
       </HashRouter>
