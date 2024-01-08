@@ -63,7 +63,7 @@ const MyNavbar = () => {
                     <Link to="/#projects" className="nav-link px-4">
                       Projects
                     </Link>
-                    <Link to="/comingsoon" className="nav-link px-4">
+                    <Link to="/blog" className="nav-link px-4">
                       Blog
                     </Link>
                     <a className="nav-link px-4" href={resume} target="_blank">

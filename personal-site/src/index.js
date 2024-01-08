@@ -5,6 +5,8 @@ import App from "./App";
 import ComingSoon from "./components/ComingSoon/ComingSoon.js";
 import MyNavbar from "./components/MyNavbar/MyNavbar.js";
 import Footer from "./components/Footer/Footer.js";
+import Blog from "./components/Blog/Blog.js";
+import Register from "./components/Register/Register.js";
 import reportWebVitals from "./reportWebVitals";
 import {
   BrowserRouter,
@@ -13,19 +15,31 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import Login from "components/Login/Login";
+import { AuthProvider } from "react-auth-kit";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <BrowserRouter> */}
-    <HashRouter>
-      <MyNavbar />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/comingsoon" element={<ComingSoon />} />
-      </Routes>
-      <Footer />
-    </HashRouter>
+    <AuthProvider
+      authType={"cookie"}
+      authName={"_auth"}
+      cookieDomain={window.location.hostname}
+      cookieSecure={false}
+    >
+      <HashRouter>
+        <MyNavbar />
+        <Routes>
+          <Route path="/comingsoon" element={<ComingSoon />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<App />} />
+        </Routes>
+        <Footer />
+      </HashRouter>
+    </AuthProvider>
     {/* </BrowserRouter> */}
   </React.StrictMode>
 );
