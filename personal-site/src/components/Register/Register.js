@@ -18,6 +18,7 @@ function Register() {
   const signIn = useSignIn();
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const [msg, setMsg] = useState("");
   const { Formik } = formik;
 
   const schema = yup.object().shape({
@@ -32,7 +33,7 @@ function Register() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/login",
+        "http://localhost:5000/api/v1/register",
         values
       );
 
@@ -43,6 +44,7 @@ function Register() {
         authState: { email: values.email },
       });
       // navigate("/");
+      setMsg(response.data.message);
       setLoading(false);
     } catch (err) {
       if (err && err instanceof AxiosError) {
@@ -52,6 +54,7 @@ function Register() {
       }
       console.log("Error: ", err);
       setLoading(false);
+      setMsg("");
       return;
     }
   };
@@ -109,6 +112,7 @@ function Register() {
                     <Form.Control.Feedback type="invalid">
                       {errors.reason}
                     </Form.Control.Feedback>
+                    <Form.Control.Feedback>{msg}</Form.Control.Feedback>
                   </Form.Group>
                 </Row>
                 <h6 className="text-danger">{error}</h6>
