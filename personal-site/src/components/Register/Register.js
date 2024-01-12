@@ -22,6 +22,7 @@ function Register() {
   const { Formik } = formik;
 
   const schema = yup.object().shape({
+    username: yup.string().required(),
     email: yup.string().required(),
     reason: yup.string().required(),
   });
@@ -72,12 +73,30 @@ function Register() {
             validationSchema={schema}
             onSubmit={(values) => onSubmit(values)}
             initialValues={{
+              username: "",
               email: "",
               reason: "",
             }}
           >
             {({ handleSubmit, handleChange, values, touched, errors }) => (
               <Form noValidate onSubmit={handleSubmit}>
+                <Row className="mb-3">
+                  <Form.Group as={Col} controlId="validationFormik00">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                      type="username"
+                      name="username"
+                      value={values.username}
+                      onChange={handleChange}
+                      isValid={touched.username && !errors.username}
+                      isInvalid={!!errors.username}
+                    />
+                    {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
+                    <Form.Control.Feedback type="invalid">
+                      {errors.username}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Row>
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="validationFormik01">
                     <Form.Label>Email</Form.Label>
