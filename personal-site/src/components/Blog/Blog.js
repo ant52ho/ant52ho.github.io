@@ -4,12 +4,30 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
+import { useSignOut } from "react-auth-kit";
+import { useState, useEffect } from "react";
+import useIsAuthenticated from "react-auth-kit/dist/hooks/useIsAuthenticated";
 
 const Blog = () => {
+  const [isSignedIn, setIsSignedIn] = useState(useIsAuthenticated());
+  const isAuthenticated = useIsAuthenticated();
   const navigate = useNavigate();
+  const signOut = useSignOut();
   function onSignupClick() {
     navigate("/login");
   }
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      setIsSignedIn(true);
+    } else {
+      setIsSignedIn(false);
+    }
+  });
+  const Logout = () => {
+    signOut();
+    console.log("signed out");
+  };
 
   return (
     <>
@@ -17,6 +35,20 @@ const Blog = () => {
         <div className="h-100 d-flex justify-content-center align-items-center flex-column">
           <Row className="m-3">
             <h1>Blog</h1>
+          </Row>
+          <Row>
+            {isSignedIn ? (
+              <Button variant="dark" onClick={Logout}>
+                Sign out
+              </Button>
+            ) : (
+              <div>
+                <Button className="me-2" onClick={() => navigate("/login")}>
+                  Sign in
+                </Button>
+                <Button onClick={() => navigate("/register")}>Register</Button>
+              </div>
+            )}
           </Row>
           <Row className="flex-md-row text-center justify-content-center pt-4">
             <Col xs={12} md={6} className="d-flex justify-content-center">

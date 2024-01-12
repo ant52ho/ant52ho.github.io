@@ -7,10 +7,11 @@ import Card from "react-bootstrap/Card";
 import { useSignIn } from "react-auth-kit";
 import * as formik from "formik";
 import axios, { AxiosError } from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import { HashLink as Link } from "react-router-hash-link";
+import useIsAuthenticated from "react-auth-kit/dist/hooks/useIsAuthenticated";
 
 function Login() {
   const { Formik } = formik;
@@ -18,6 +19,14 @@ function Login() {
   const signIn = useSignIn();
   const navigate = useNavigate();
   const [error, setError] = useState("");
+
+  const isAuthenticated = useIsAuthenticated();
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      navigate("/blog");
+    }
+  }, []);
 
   const onSubmit = async (values) => {
     console.log("Values: ", values);
@@ -36,7 +45,6 @@ function Login() {
         tokenType: "Bearer",
         authState: { email: values.email },
       });
-      // navigate("/");
       setLoading(false);
     } catch (err) {
       if (err && err instanceof AxiosError) {
