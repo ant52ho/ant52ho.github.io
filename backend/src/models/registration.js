@@ -4,12 +4,17 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../database");
 
 const Registration = sequelize.define("Registration", {
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: "blank",
+  },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
   },
   reason: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false,
   },
 });
