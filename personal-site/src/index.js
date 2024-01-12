@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer.js";
 import Blog from "./components/Blog/Blog.js";
 import Register from "./components/Register/Register.js";
 import reportWebVitals from "./reportWebVitals";
+import Admin from "./components/Admin/Admin.js";
 import {
   BrowserRouter,
   HashRouter,
@@ -30,13 +31,16 @@ root.render(
     >
       <HashRouter>
         <MyNavbar />
-        <Routes>
-          <Route path="/comingsoon" element={<ComingSoon />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/" element={<App />} />
-        </Routes>
+        <div className="pages">
+          <Routes>
+            <Route path="/comingsoon" element={<ComingSoon />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/admin" element={<Admin />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/" element={<App />} />
+          </Routes>
+        </div>
         <Footer />
       </HashRouter>
     </AuthProvider>
