@@ -37,14 +37,6 @@ function Register() {
         "http://localhost:5000/api/v1/register",
         values
       );
-
-      signIn({
-        token: response.data.token,
-        expiresIn: 3600,
-        tokenType: "Bearer",
-        authState: { email: values.email },
-      });
-      // navigate("/");
       setMsg(response.data.message);
       setLoading(false);
     } catch (err) {
