@@ -8,10 +8,11 @@ import * as yup from "yup";
 import Card from "react-bootstrap/Card";
 import { useSignIn } from "react-auth-kit";
 import axios, { AxiosError } from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import { HashLink as Link } from "react-router-hash-link";
+import useIsAuthenticated from "react-auth-kit/dist/hooks/useIsAuthenticated";
 
 function Register() {
   const [loading, setLoading] = useState(false);
@@ -20,12 +21,19 @@ function Register() {
   const [error, setError] = useState("");
   const [msg, setMsg] = useState("");
   const { Formik } = formik;
+  const isAuthenticated = useIsAuthenticated();
 
   const schema = yup.object().shape({
     username: yup.string().required(),
     email: yup.string().required(),
     reason: yup.string().required(),
   });
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      navigate("/blog");
+    }
+  }, []);
 
   const onSubmit = async (values) => {
     console.log("Values: ", values);

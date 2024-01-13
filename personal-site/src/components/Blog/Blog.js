@@ -4,29 +4,41 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
-import { useSignOut } from "react-auth-kit";
+import {
+  useAuthHeader,
+  useIsAuthenticated,
+  useAuthUser,
+  useSignOut,
+} from "react-auth-kit";
 import { useState, useEffect } from "react";
-import useIsAuthenticated from "react-auth-kit/dist/hooks/useIsAuthenticated";
+import { jwtDecode } from "jwt-decode";
 
 const Blog = () => {
+  const [userRole, setUserRole] = useState("");
   const [isSignedIn, setIsSignedIn] = useState(useIsAuthenticated());
   const isAuthenticated = useIsAuthenticated();
   const navigate = useNavigate();
   const signOut = useSignOut();
+  const getHeader = useAuthHeader();
   function onSignupClick() {
-    navigate("/login");
+    if (isAuthenticated()) {
+      navigate("/blog");
+    } else {
+      navigate("/login");
+    }
   }
 
   useEffect(() => {
-    if (isAuthenticated()) {
-      setIsSignedIn(true);
-    } else {
-      setIsSignedIn(false);
+    const header = getHeader();
+    if (header) {
+      const decoded = jwtDecode(header);
+      setUserRole(decoded.userRole);
     }
-  });
+  }, []);
+
   const Logout = () => {
     signOut();
-    console.log("signed out");
+    setIsSignedIn(false);
   };
 
   return (
@@ -38,9 +50,20 @@ const Blog = () => {
           </Row>
           <Row>
             {isSignedIn ? (
-              <Button variant="dark" onClick={Logout}>
-                Sign out
-              </Button>
+              <div>
+                {userRole == "admin" ? (
+                  <Button
+                    variant="dark"
+                    onClick={() => navigate("/blog/admin")}
+                    className="me-2"
+                  >
+                    Admin console
+                  </Button>
+                ) : null}
+                <Button variant="dark" onClick={Logout}>
+                  Sign out
+                </Button>
+              </div>
             ) : (
               <div>
                 <Button className="me-2" onClick={() => navigate("/login")}>

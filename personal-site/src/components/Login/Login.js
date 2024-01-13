@@ -19,6 +19,7 @@ function Login() {
   const signIn = useSignIn();
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const isAuthenticated = useIsAuthenticated();
 
@@ -26,7 +27,7 @@ function Login() {
     if (isAuthenticated()) {
       navigate("/blog");
     }
-  }, []);
+  }, [submitted]);
 
   const onSubmit = async (values) => {
     console.log("Values: ", values);
@@ -56,6 +57,9 @@ function Login() {
       setLoading(false);
       return;
     }
+
+    setSubmitted(!submitted);
+    return;
   };
 
   return (
