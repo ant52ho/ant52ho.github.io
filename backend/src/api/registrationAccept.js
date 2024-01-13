@@ -37,7 +37,7 @@ router.post("/register/accept", async (req, res) => {
   console.log("Generated password:", password);
 
   // define permission
-  const permission = 0;
+  const userRole = "user";
 
   // insert new user into db
   const alreadyExistsUser = await User.findOne({ where: { email } }).catch(
@@ -48,7 +48,7 @@ router.post("/register/accept", async (req, res) => {
   if (alreadyExistsUser) {
     return res.json({ message: "User with email already exists" });
   }
-  const newUser = new User({ fullName: username, email, password, permission });
+  const newUser = new User({ fullName: username, email, password, userRole });
   const savedUser = await newUser.save().catch((err) => {
     console.log("Error:", err);
     res.json({ error: "Cannot register user at the moment!" });
