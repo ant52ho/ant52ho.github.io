@@ -8,6 +8,7 @@ const adminApi = require("./admin");
 const adminRegistrationsApi = require("./getregistrations");
 const registerAcceptApi = require("./registrationAccept");
 const registerRejectApi = require("./registrationReject");
+const s3UrlApi = require("./s3Url");
 
 const router = express.Router();
 
@@ -25,5 +26,6 @@ router.use(adminApi);
 router.use(adminRegistrationsApi);
 router.use(registerAcceptApi);
 router.use(registerRejectApi);
+router.use(s3UrlApi);
 
 module.exports = router;

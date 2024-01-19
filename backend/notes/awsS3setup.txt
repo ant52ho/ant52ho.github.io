@@ -1,0 +1,10 @@
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example1.html
+https://www.youtube.com/watch?v=yGYeYJpRWPM
+
+1. created s3 iam user personal website that can sign in using account id and password
+2. to add new user to S3 bucket: 
+    - create policy that allows access to particular resource ie bucket
+    - attach policy to a Group
+    - attach group permission to a user
+    - it's best not to use root user for everyday tasks 
+      so we don't worry about root user s3 authorization
