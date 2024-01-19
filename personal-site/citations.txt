@@ -1,0 +1,7 @@
+react quill:
+https://medium.com/@mircea.calugaru/react-quill-editor-with-full-toolbar-options-and-custom-buttons-undo-redo-176d79f8d375
+https://github.com/quilljs/quill/blob/f32aa5f5360e90920d0a4ecf0d029c5135a24975/docs/index.html#L87
+https://github.com/zenoamaro/react-quill/issues/273
+
+first post:
+<h1>Test post</h1><p><br></p><p>hello world </p><p><br></p><p><br></p><p><br></p><p>text text text </p><p><br></p><p><strong>greg<em>reger</em></strong><em>rgeg<u>greger</u></em><u>grge</u><s><u>gregeeg</u></s></p><ol><li>yes</li></ol><ul><li>ges</li></ul><p class="ql-align-center">yes</p><p><img src="https://ant52ho-personal-site.s3.us-east-2.amazonaws.com/eba8de323652ffbe71a5609c643a6fca"></p><blockquote>TFT is fun </blockquote><p>The only thing that bothers me is the image resizing issues and what the post looks like. Hopefully I'll find an elegant way to display this all. </p>

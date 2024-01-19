@@ -9,6 +9,9 @@ import Blog from "./components/Blog/Blog.js";
 import Register from "./components/Register/Register.js";
 import reportWebVitals from "./reportWebVitals";
 import Admin from "./components/Admin/Admin.js";
+import Test from "./components/Test/Test";
+import CreatePost from "components/CreatePost/CreatePost";
+
 import {
   BrowserRouter,
   HashRouter,
@@ -39,6 +42,8 @@ root.render(
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/" element={<App />} />
+            <Route path="/test" element={<Test />} />
+            <Route path="/create-post" element={<CreatePost />} />
           </Routes>
         </div>
         <Footer />
