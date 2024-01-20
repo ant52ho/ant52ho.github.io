@@ -1,0 +1,4 @@
+routes assign an endpoint to a function
+controllers define the function and export to the route 
+
+controllers may be defined in groups. ie products might have a get, delete 
