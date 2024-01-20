@@ -4,7 +4,7 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../database");
 
 const BlogPost = sequelize.define("BlogPost", {
-  id: {
+  postId: {
     type: DataTypes.UUID,
     primaryKey: true,
   },
@@ -15,13 +15,19 @@ const BlogPost = sequelize.define("BlogPost", {
     defaultValue: "blank",
   },
 
-  // title
+  userId: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: "users",
+      key: "id",
+    },
+  },
+
   title: {
     type: DataTypes.STRING,
     allowNull: false,
   },
 
-  // content
   content: {
     type: DataTypes.TEXT,
   },
