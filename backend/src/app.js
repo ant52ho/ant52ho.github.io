@@ -14,9 +14,8 @@ const api = require("./api");
 const app = express();
 
 const corsConfig = {
-    // origin: "http://localhost:3000/",
-    origin: true,
-    credentials: true,
+  origin: true,
+  credentials: true,
 };
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,16 +23,15 @@ app.use(bodyParser.json());
 
 app.use(morgan("dev"));
 app.use(helmet());
-app.use(cors());
 app.use(cors(corsConfig));
-// app.options("*", cors(corsConfig));
 app.use(cookieParser());
+app.use(middlewares.addJWTtoCookie);
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.json({
-        message: "🦄🌈✨👋🌎🌍🌏✨🌈🦄",
-    });
+  res.json({
+    message: "🦄🌈✨👋🌎🌍🌏✨🌈🦄",
+  });
 });
 
 app.use("/api/v1", api);
