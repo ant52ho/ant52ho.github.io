@@ -99,14 +99,7 @@ export const Editor = ({ value, setValue }) => {
   ];
 
   return (
-    <div
-      className="text-editor"
-      style={{
-        minHeight: "100px",
-        minWidth: "100%",
-        padding: "20px",
-      }}
-    >
+    <div className="text-editor">
       <EditorToolbar />
       <ReactQuill
         ref={(el) => (quillRef.current = el)}

@@ -16,7 +16,9 @@ function ButtonRenderer(props) {
         params === "Accept" ? "accept" : "reject"
       }`;
 
-      const response = await axios.post(endpoint, props.data).then();
+      const response = await axios
+        .post(endpoint, props.data, { withCredentials: true })
+        .then();
 
       console.log(response);
       const ret = response.data.message
