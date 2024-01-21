@@ -1,6 +1,7 @@
 import React from "react";
 import { Quill } from "react-quill";
 import styles from "./EditorToolbar.module.css";
+import "./quillStyles.css";
 
 // Custom Undo button icon component for Quill editor. You can import it directly
 // from 'quill/assets/icons/undo.svg' but I found that a number of loaders do not
@@ -26,46 +27,27 @@ const CustomRedo = () => (
   </svg>
 );
 
-// Add sizes to whitelist and register them
-const Size = Quill.import("formats/size");
-Size.whitelist = ["extra-small", "small", "medium", "large"];
-Quill.register(Size, true);
-
-// Add fonts to whitelist and register them
-const Font = Quill.import("formats/font");
-Font.whitelist = [
-  "arial",
-  "comic-sans",
-  "courier-new",
-  "georgia",
-  "helvetica",
-  "lucida",
-];
-Quill.register(Font, true);
-
 function QuillToolbar() {
   return (
     <>
-      <div id="toolbar">
+      <div id="toolbar-container">
         <span className="ql-formats">
           <select className="ql-header" defaultValue="3">
-            <option value="1">Heading</option>
-            <option value="2">Subheading</option>
             <option value="3">Normal</option>
+            <option value="2">Subheading</option>
+            <option value="1">Heading</option>
           </select>
-          <select className="ql-font" defaultValue="arial">
+          <select className="ql-font">
+            <option value="helvetica">Helvetica</option>
+            <option value="helvetica-neue">Helvetica Neue</option>
             <option value="arial">Arial</option>
-            {/* <option value="comic-sans">Comic Sans</option> */}
-            {/* <option value="courier-new">Courier New</option> */}
-            {/* <option value="georgia">Georgia</option> */}
-            {/* <option value="helvetica">Helvetica</option> */}
-            {/* <option value="lucida">Lucida</option> */}
+            <option value="courier-new">Courier New</option>
           </select>
-          <select className="ql-size" defaultValue="false">
-            <option value="small">Size 1</option>
-            <option value="false">Size 2</option>
-            <option value="large">Size 3</option>
-            <option value="huge">Size 4</option>
+          <select className="ql-size" value={"14px"} onChange={() => {}}>
+            <option value="10px">10px</option>
+            <option value="14px">14px</option>
+            <option value="18px">18px</option>
+            <option value="32px">32px</option>
           </select>
         </span>
         <span className="ql-formats">
@@ -77,8 +59,8 @@ function QuillToolbar() {
         <span className="ql-formats">
           <button className="ql-list" value="ordered" />
           <button className="ql-list" value="bullet" />
-          <button className="ql-indent" value="-1" />
-          <button className="ql-indent" value="+1" />
+          {/* <button className="ql-indent" value="-1" /> */}
+          {/* <button className="ql-indent" value="+1" /> not worth trouble*/}
         </span>
         <span className="ql-formats">
           <select className={`ql-align ${styles.shift}`} />
@@ -99,7 +81,7 @@ function QuillToolbar() {
         </span>
         <span className="ql-formats">
           {/* <button className="ql-formula" /> */}
-          <button className="ql-code-block" />
+          {/* <button className="ql-code-block" /> */}
           <button className="ql-clean" />
         </span>
         {/* <span className="ql-formats">

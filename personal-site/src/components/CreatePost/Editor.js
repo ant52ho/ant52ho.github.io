@@ -1,9 +1,19 @@
 import { useState, useEffect, useMemo, useRef } from "react";
-import ReactQuill from "react-quill";
+import ReactQuill, { Quill } from "react-quill";
 import EditorToolbar from "./EditorToolbar";
-import { Quill } from "react-quill";
 import axios from "axios";
 import "react-quill/dist/quill.snow.css";
+import "./quillStyles.css";
+
+// Add sizes to whitelist and register them
+const Size = Quill.import("formats/size");
+Size.whitelist = ["10px", "14px", "18px", "32px"];
+Quill.register(Size, true);
+
+// Add fonts to whitelist and register them
+const Font = Quill.import("formats/font");
+Font.whitelist = ["helvetica-neue", "helvetica", "arial", "courier-new"];
+Quill.register(Font, true);
 
 export const Editor = ({ value, setValue }) => {
   const quillRef = useRef();
@@ -57,7 +67,7 @@ export const Editor = ({ value, setValue }) => {
   const modules = useMemo(
     () => ({
       toolbar: {
-        container: "#toolbar",
+        container: "#toolbar-container",
         handlers: {
           undo: undoChange,
           redo: redoChange,
@@ -100,14 +110,18 @@ export const Editor = ({ value, setValue }) => {
 
   return (
     <div className="text-editor">
-      <EditorToolbar />
+      <EditorToolbar id="toolbar-container" />
       <ReactQuill
+        id="editor-container"
         ref={(el) => (quillRef.current = el)}
         theme="snow"
         modules={modules}
         formats={formats}
         value={value}
-        onChange={(value) => setValue(value)}
+        onChange={(value) => {
+          console.log(value);
+          setValue(value);
+        }}
         placeholder={"What's on your mind?"}
       />
     </div>

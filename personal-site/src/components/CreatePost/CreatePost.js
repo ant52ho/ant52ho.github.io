@@ -45,7 +45,7 @@ function CreatePost() {
     getRoles();
   }, []);
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values, actions) => {
     setMsg("");
     const selectedOptionsVal = selectedOptions.map((item) => {
       return item.value;
@@ -65,6 +65,10 @@ function CreatePost() {
           },
         }
       );
+      // clear form contents
+      actions.resetForm({ values: { title: "" } });
+      setValue("");
+      setSelectedOptions([]);
       setMsg(response.data.message);
     } catch (err) {
       if (err && err instanceof AxiosError) {
@@ -94,7 +98,7 @@ function CreatePost() {
         >
           <Formik
             validationSchema={schema}
-            onSubmit={(values) => onSubmit(values)}
+            onSubmit={(values, actions) => onSubmit(values, actions)}
             initialValues={{
               title: "",
             }}

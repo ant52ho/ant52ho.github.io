@@ -1,0 +1,52 @@
+/* Set default font-family */
+#editor-container {
+  /* font-family: "Aref Ruqaa"; */
+  /* font-size: 18px; */
+  /* height: 375px; */
+}
+
+/* Set dropdown font-families */
+/* #toolbar-container .ql-font option[value="comic-sans"] {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+} */
+
+.ql-font span[data-label="Helvetica Neue"]::before {
+  font-family: "Helvetica Neue", sans-serif;
+}
+.ql-font-helvetica-neue {
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.ql-font span[data-label="Helvetica"]::before {
+  font-family: "Helvetica", sans-serif;
+}
+.ql-font-helvetica {
+  font-family: "Helvetica", sans-serif;
+}
+
+.ql-font span[data-label="Arial"]::before {
+  font-family: "Arial", sans-serif;
+}
+.ql-font-arial {
+  font-family: "Arial", sans-serif;
+}
+
+.ql-font span[data-label="Courier New"]::before {
+  font-family: "Courier New", sans-serif;
+}
+.ql-font-courier-new {
+  font-family: "Courier New", sans-serif;
+}
+
+.ql-size-10px {
+  font-size: 10px;
+}
+.ql-size-14px {
+  font-size: 14px;
+}
+.ql-size-18px {
+  font-size: 18px;
+}
+.ql-size-32px {
+  font-size: 32px;
+}
