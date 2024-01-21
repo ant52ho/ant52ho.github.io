@@ -11,6 +11,7 @@ const registerRejectApi = require("./registrationReject");
 const s3UrlApi = require("./s3Url");
 const createPostApi = require("./createPost");
 const configApi = require("../config/conf").router;
+const getPostApi = require("./getPost");
 
 const router = express.Router();
 
@@ -31,5 +32,6 @@ router.use(registerRejectApi);
 router.use(s3UrlApi);
 router.use(createPostApi);
 router.use(configApi);
+router.use(getPostApi);
 
 module.exports = router;

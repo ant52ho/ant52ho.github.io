@@ -1,4 +1,3 @@
-const { config } = require("../config/conf");
 const express = require("express");
 const router = express.Router();
 const BlogPost = require("../models/blogpost");
@@ -8,7 +7,6 @@ const { v4: uuidv4 } = require("uuid");
 const zlib = require("zlib");
 const { promisify } = require("util");
 const deflate = promisify(zlib.deflate);
-const unzip = promisify(zlib.unzip);
 
 router.post(
   "/create-post",
@@ -69,14 +67,3 @@ router.post(
 );
 
 module.exports = router;
-
-// // code for unzipping after storage
-// const buffer = Buffer.from(deflatedBody, "base64");
-// const unzippedBody = await unzip(buffer)
-//   .then((buf) => {
-//     return buf.toString();
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-// console.log(unzippedBody);
