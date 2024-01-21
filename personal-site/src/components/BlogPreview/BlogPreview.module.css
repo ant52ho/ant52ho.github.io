@@ -1,0 +1,11 @@
+.hoverMove {
+  /* position: relative; */
+  /* top: 0; */
+  transition: 0.2s ease-in-out;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 2px 15px 0 rgba(0, 0, 0, 0.15); */
+  /* border-radius: 10px; */
+}
+
+.hoverMove:hover {
+  transform: translateY(-3px);
+}

@@ -80,7 +80,12 @@ const Blog = () => {
                 <Card.Body>
                   <Card.Title>General Content</Card.Title>
                   <Card.Text>Just normal items</Card.Text>
-                  <Button variant="primary">Go!</Button>
+                  <Button
+                    variant="primary"
+                    onClick={() => navigate("/blog/posts")}
+                  >
+                    Go!
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>

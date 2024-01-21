@@ -6,6 +6,8 @@ import ComingSoon from "./components/ComingSoon/ComingSoon.js";
 import MyNavbar from "./components/MyNavbar/MyNavbar.js";
 import Footer from "./components/Footer/Footer.js";
 import Blog from "./components/Blog/Blog.js";
+import BlogPosts from "components/BlogPosts/BlogPosts";
+import BlogPost from "components/BlogPost/BlogPost";
 import Register from "./components/Register/Register.js";
 import reportWebVitals from "./reportWebVitals";
 import Admin from "./components/Admin/Admin.js";
@@ -38,6 +40,8 @@ root.render(
           <Routes>
             <Route path="/comingsoon" element={<ComingSoon />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/posts" element={<BlogPosts />} />
+            <Route path="/blog/post/:postId" element={<BlogPost />} />
             <Route path="/blog/admin" element={<Admin />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
