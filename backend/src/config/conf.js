@@ -2,11 +2,12 @@ const express = require("express");
 const router = express.Router();
 
 const config = {
-  defaultRole: "user",
-  roles: ["user", "admin"],
+  defaultRole: "guest",
+  roles: ["guest", "user", "admin"],
   roleAccess: {
-    user: ["user"],
-    admin: ["user", "admin"],
+    guest: ["user"],
+    user: ["guest", "user"],
+    admin: ["guest", "user", "admin"],
   },
 };
 

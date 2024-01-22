@@ -24,9 +24,7 @@ async function decompress(deflatedBody) {
 
 router.get("/blog/previews", async (req, res) => {
   console.log(req.cookies);
-  const role = req.cookies?.userRole
-    ? req.cookies.userRole
-    : config.defaultRole;
+  const role = req.cookies.userRole;
 
   const access = config.roleAccess[role];
   console.log(access);
@@ -37,7 +35,7 @@ router.get("/blog/previews", async (req, res) => {
   const posts = await sequelize
     .query(
       `
-      SELECT blogposts.postId, blogposts.username, blogposts.title, blogposts.createdAt,
+      SELECT blogposts.postId, blogposts.username, blogposts.title, blogposts.createdAt, blogposts.summary,
        GROUP_CONCAT(blogpermissions.userRole) AS permissions
       FROM blogposts
       LEFT JOIN blogpermissions ON blogposts.postId = blogpermissions.postId
@@ -50,7 +48,7 @@ router.get("/blog/previews", async (req, res) => {
       console.log("Error:", err);
     });
 
-  console.log("All posts:", JSON.stringify(posts, null, 2));
+  // console.log("All posts:", JSON.stringify(posts, null, 2));
   return res.json({ posts: posts, access: access });
 });
 
@@ -63,7 +61,7 @@ router.get("/blog/post", async (req, res) => {
   const userRole = req.cookies.userRole;
   const postId = req.query.postId;
 
-  // role based accesses
+  // // role based accesses
   const access = config.roleAccess[userRole];
 
   // check if userRole and postId are in database
@@ -76,7 +74,7 @@ router.get("/blog/post", async (req, res) => {
 
   // if no access
   if (permission === null) {
-    return res.status(400).json({ message: "Insufficient perms" });
+    return res.status(400).json({ message: "Insufficient perms to view post" });
   }
 
   var post = await BlogPost.findOne({

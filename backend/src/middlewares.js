@@ -1,4 +1,5 @@
 const { jwtDecode } = require("jwt-decode");
+const { config } = require("./config/conf");
 
 function notFound(req, res, next) {
   res.status(404);
@@ -23,14 +24,23 @@ function addJWTtoCookie(req, res, next) {
     if (req?.cookies === undefined) {
       next();
     }
+    console.log(req?.cookies || false);
+    console.log(req.cookies);
     const decoded = jwtDecode(req.cookies["_auth"]);
     req.cookies = {
       ...req.cookies,
       ...decoded,
     };
   } catch (err) {
+    // no cookie found, so we assign guest cookie
+    req.cookies = {
+      userRole: config.defaultRole,
+      username: "guest",
+      email: "",
+      id: null,
+    };
     // console.log(err);
-    console.log("No cookie available to parse");
+    console.log("No cookie available to parse, adding guest cookie");
   }
   next();
 }
