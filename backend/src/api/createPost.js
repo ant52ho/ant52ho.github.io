@@ -12,7 +12,7 @@ router.post(
   "/create-post",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const { title, body, role } = req.body;
+    const { title, previewSummary, body, role } = req.body;
     const { id, email, userRole, username } = req.cookies;
     console.log(req.cookies);
     console.log(req.body);
@@ -39,6 +39,7 @@ router.post(
       username: username,
       userId: id,
       title: title,
+      summary: previewSummary,
       content: deflatedBody,
     });
     const savedPost = await newPost.save().catch((err) => {

@@ -3,7 +3,8 @@ import styles from "./BlogPreview.module.css";
 import { useNavigate } from "react-router-dom";
 
 function BlogPreview(props) {
-  const { username, postId, title, content, createdAt, permissions } = props;
+  const { username, postId, title, content, createdAt, permissions, summary } =
+    props;
   const navigate = useNavigate();
   const dateObject = new Date(createdAt);
   const options = { year: "numeric", month: "long", day: "numeric" };
@@ -14,8 +15,8 @@ function BlogPreview(props) {
         className={"w-100 border rounded rounded-lg p-3 " + styles.hoverMove}
         onClick={() => navigate("/blog/post/" + postId)}
       >
-        <h3>{title}</h3>
-        <p className="lead m-0">Here is some text</p>
+        <h4>{title}</h4>
+        <p className="lead m-0">{summary}</p>
         <p className="m-0">
           <small>
             {formattedDate} by {username}

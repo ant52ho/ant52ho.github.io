@@ -28,6 +28,11 @@ const BlogPost = sequelize.define("BlogPost", {
     allowNull: false,
   },
 
+  summary: {
+    type: DataTypes.STRING,
+    defaultValue: "",
+  },
+
   content: {
     type: DataTypes.TEXT,
   },

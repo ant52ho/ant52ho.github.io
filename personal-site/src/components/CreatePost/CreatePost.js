@@ -19,6 +19,7 @@ function CreatePost() {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const schema = yup.object().shape({
     title: yup.string().required(),
+    previewSummary: yup.string(),
   });
 
   function log() {
@@ -66,7 +67,7 @@ function CreatePost() {
         }
       );
       // clear form contents
-      actions.resetForm({ values: { title: "" } });
+      actions.resetForm({ values: { title: "", previewSummary: "" } });
       setValue("");
       setSelectedOptions([]);
       setMsg(response.data.message);
@@ -101,14 +102,17 @@ function CreatePost() {
             onSubmit={(values, actions) => onSubmit(values, actions)}
             initialValues={{
               title: "",
+              previewSummary: "",
             }}
           >
             {({ handleSubmit, handleChange, values, touched, errors }) => (
               <Form noValidate onSubmit={handleSubmit}>
-                <Row className="mb-3">
+                <Row className="mb-2">
                   <Form.Group as={Col}>
-                    <p className="h4">Title</p>
+                    <p className="h5">Title</p>
                     <Form.Control
+                      placeholder="Blog post title"
+                      size="sm"
                       type="text"
                       name="title"
                       value={values.title}
@@ -121,9 +125,27 @@ function CreatePost() {
                     </Form.Control.Feedback>
                   </Form.Group>
                 </Row>
-                <p className="h4 pt-1">Body</p>
+                <Row className="mb-2">
+                  <Form.Group as={Col}>
+                    <p className="h5">Preview Summary (optional)</p>
+                    <Form.Control
+                      placeholder="Summary of body"
+                      size="sm"
+                      type="text"
+                      name="previewSummary"
+                      value={values.previewSummary}
+                      onChange={handleChange}
+                      isValid={touched.previewSummary && !errors.previewSummary}
+                      isInvalid={!!errors.previewSummary}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.previewSummary}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Row>
+                <p className="h5 pt-1">Body</p>
                 <Editor value={value} setValue={setValue} />
-                <p className="h4 pt-3">Settings</p>
+                <p className="h5 pt-3">Settings</p>
 
                 <p className="h6 pt-2">Viewable groups</p>
                 <Select
