@@ -61,6 +61,7 @@ const BlogPost = () => {
     }
 
     getPost();
+    window.scrollTo(0, 0);
   }, []);
 
   return (

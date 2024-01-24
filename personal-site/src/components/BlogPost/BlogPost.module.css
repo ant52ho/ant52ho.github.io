@@ -1,4 +1,15 @@
 .post img {
   max-width: 100%; /* Maximum width of the container */
   height: auto; /* Maintain aspect ratio */
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.post p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.post {
+  margin-bottom: 40px;
 }
