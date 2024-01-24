@@ -1,0 +1,7 @@
+.dots {
+  z-index: 1;
+  border-radius: 30%;
+  padding: 8px;
+  padding-bottom: 12px;
+  background-color: rgba(0, 0, 0, 0);
+}
