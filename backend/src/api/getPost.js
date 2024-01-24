@@ -26,7 +26,7 @@ router.get("/blog/previews", async (req, res) => {
   console.log(req.cookies);
   const role = req.cookies.userRole;
 
-  const access = config.roleAccess[role];
+  const access = config.readAccess[role];
   console.log(access);
 
   const formattedAccess = "('" + access.join("', '") + "')";
@@ -48,7 +48,7 @@ router.get("/blog/previews", async (req, res) => {
       console.log("Error:", err);
     });
 
-  // console.log("All posts:", JSON.stringify(posts, null, 2));
+  console.log("All posts:", JSON.stringify(posts, null, 2));
   return res.json({ posts: posts, access: access });
 });
 
@@ -62,7 +62,7 @@ router.get("/blog/post", async (req, res) => {
   const postId = req.query.postId;
 
   // // role based accesses
-  const access = config.roleAccess[userRole];
+  const access = config.readAccess[userRole];
 
   // check if userRole and postId are in database
   const permission = await BlogPermission.findOne({

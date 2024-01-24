@@ -4,10 +4,10 @@ const router = express.Router();
 const config = {
   defaultRole: "guest",
   roles: ["guest", "user", "admin"],
-  roleAccess: {
-    guest: ["user"],
-    user: ["guest", "user"],
-    admin: ["guest", "user", "admin"],
+  readAccess: {
+    guest: ["user"], // ie guest can read what user posts.
+    user: ["user"],
+    admin: ["user", "admin"],
   },
 };
 
