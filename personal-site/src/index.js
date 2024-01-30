@@ -13,6 +13,7 @@ import reportWebVitals from "./reportWebVitals";
 import Admin from "./components/Admin/Admin.js";
 import Test from "./components/Test/Test";
 import CreatePost from "components/CreatePost/CreatePost";
+import EditPost from "components/EditPost/EditPost";
 
 import {
   BrowserRouter,
@@ -42,12 +43,13 @@ root.render(
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/posts" element={<BlogPosts />} />
             <Route path="/blog/post/:postId" element={<BlogPost />} />
+            <Route path="/blog/edit/:postId" element={<EditPost />} />
+            <Route path="/blog/create" element={<CreatePost />} />
             <Route path="/blog/admin" element={<Admin />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/" element={<App />} />
             <Route path="/test" element={<Test />} />
-            <Route path="/create-post" element={<CreatePost />} />
           </Routes>
         </div>
         <Footer />

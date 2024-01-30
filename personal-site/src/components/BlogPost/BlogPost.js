@@ -34,6 +34,7 @@ const BlogPost = () => {
 
         // formatting
         const dateObject = new Date(result.createdAt);
+        const updatedObject = new Date(result.updatedAt);
         const options = {
           year: "numeric",
           month: "long",
@@ -45,9 +46,14 @@ const BlogPost = () => {
           // Other formatting options as needed
         };
         const formattedDate = dateObject.toLocaleDateString("en-US", options);
+        const formattedUpdate = updatedObject.toLocaleDateString(
+          "en-US",
+          options
+        );
         console.log(formattedDate);
         result.createdAt = formattedDate;
-        setData(result); // title, content, createdAt, updatedAt, username
+        result.updatedAt = formattedUpdate;
+        setData(result); // title, content, createdAt, updatedAt, createdAt, username
       } catch (err) {
         console.log(err.message);
         if (err && err instanceof AxiosError) {
@@ -86,6 +92,12 @@ const BlogPost = () => {
               <p className="m-0">
                 <small>{data.createdAt}</small>
               </p>
+              {data.createdAt != data.updatedAt ? (
+                <p>
+                  <small>Updated on {data.updatedAt}</small>
+                </p>
+              ) : null}
+
               <p className="m-0">
                 <small>Written by: {data.username}</small>
               </p>

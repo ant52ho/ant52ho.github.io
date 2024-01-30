@@ -119,7 +119,6 @@ export const Editor = ({ value, setValue }) => {
         formats={formats}
         value={value}
         onChange={(value) => {
-          console.log(value);
           setValue(value);
         }}
         placeholder={"What's on your mind?"}

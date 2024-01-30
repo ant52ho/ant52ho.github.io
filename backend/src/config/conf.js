@@ -7,7 +7,7 @@ const config = {
   readAccess: {
     guest: ["user"], // ie guest can read what user posts.
     user: ["user"],
-    admin: ["user", "admin"],
+    admin: ["guest", "user", "admin"],
   },
 };
 

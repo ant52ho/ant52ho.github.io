@@ -27,7 +27,7 @@ function BlogPreview(props) {
             right: "0.5rem",
           }}
         >
-          <EditButton username={username} />
+          <EditButton username={username} postId={postId} />
         </div>
         <div onClick={() => navigate("/blog/post/" + postId)}>
           <h4>{title}</h4>
