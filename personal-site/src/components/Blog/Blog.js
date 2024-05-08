@@ -78,8 +78,8 @@ const Blog = () => {
               <Card className="m-3" style={{ width: "18rem" }}>
                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                 <Card.Body>
-                  <Card.Title>General Content</Card.Title>
-                  <Card.Text>Just normal items</Card.Text>
+                  <Card.Title>View Blog</Card.Title>
+                  <Card.Text>!!!</Card.Text>
                   <Button
                     variant="primary"
                     onClick={() => navigate("/blog/posts")}
@@ -91,12 +91,25 @@ const Blog = () => {
             </Col>
             <Col xs={12} md={6} className="d-flex justify-content-center">
               <Card className="m-3" style={{ width: "18rem" }}>
+                <div
+                  className={`w-100 h-100 position-absolute d-flex align-items-center justify-content-center ${
+                    isSignedIn ? "d-none" : null
+                  }`}
+                  style={{
+                    backgroundColor: "#ffffffe6",
+                  }}
+                >
+                  Must be signed in to create posts!
+                </div>
                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                 <Card.Body>
-                  <Card.Title>Exclusive Content</Card.Title>
-                  <Card.Text>O_o</Card.Text>
-                  <Button variant="primary" onClick={() => onSignupClick()}>
-                    ??
+                  <Card.Title>Create Post</Card.Title>
+                  <Card.Text>...</Card.Text>
+                  <Button
+                    variant="primary"
+                    onClick={() => navigate("/blog/create")}
+                  >
+                    Create
                   </Button>
                 </Card.Body>
               </Card>

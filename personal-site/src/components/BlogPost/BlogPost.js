@@ -1,8 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios, { AxiosError } from "axios";
 import parse from "html-react-parser";
 import styles from "./BlogPost.module.css";
+import { useAuthUser, useAuthHeader } from "react-auth-kit";
+import { Button } from "react-bootstrap";
+
 const BlogPost = () => {
   const [data, setData] = useState({
     title: "",
@@ -16,12 +19,13 @@ const BlogPost = () => {
     reason: "",
     name: "Error in loading requested resource",
   });
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getPost() {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/v1/blog/post",
+          `${process.env.REACT_APP_SERVER_URL}/blog/post`,
           {
             withCredentials: true,
             params: {
@@ -29,7 +33,7 @@ const BlogPost = () => {
             },
           }
         );
-        console.log(response.data.post.content);
+        // console.log(response.data.post.content);
         const result = response.data.post;
 
         // formatting
@@ -50,7 +54,7 @@ const BlogPost = () => {
           "en-US",
           options
         );
-        console.log(formattedDate);
+        // console.log(formattedDate);
         result.createdAt = formattedDate;
         result.updatedAt = formattedUpdate;
         setData(result); // title, content, createdAt, updatedAt, createdAt, username
@@ -58,6 +62,10 @@ const BlogPost = () => {
         console.log(err.message);
         if (err && err instanceof AxiosError) {
           setError({ name: err.message, reason: err.response?.data.message });
+          if (err.response?.status == 401) {
+            // auth error
+            navigate("/blog/posts");
+          }
         } else if (err && err instanceof Error) {
           setError({ ...error, reason: err.message });
         }
@@ -86,6 +94,13 @@ const BlogPost = () => {
             padding: "20px",
           }}
         >
+          <Button
+            onClick={() => navigate("/blog/posts")}
+            variant="light border-bottom"
+            className="mt-3"
+          >
+            Return to posts
+          </Button>
           {error.reason == "" ? (
             <>
               <h1 className="display-4 pt-4 pb-2">{data.title}</h1>
@@ -94,7 +109,7 @@ const BlogPost = () => {
               </p>
               {data.createdAt != data.updatedAt ? (
                 <p>
-                  <small>Updated on {data.updatedAt}</small>
+                  <small>Updated {data.updatedAt}</small>
                 </p>
               ) : null}
 
