@@ -7,6 +7,7 @@ const sequelize = require("../database");
 const { QueryTypes, Op } = require("sequelize");
 const { promisify } = require("util");
 const zlib = require("zlib");
+const { format } = require("path");
 const unzip = promisify(zlib.unzip);
 const deflate = promisify(zlib.deflate);
 
@@ -31,6 +32,7 @@ router.get("/blog/previews", async (req, res) => {
   console.log(access);
 
   const formattedAccess = "('" + access.join("', '") + "')";
+  console.log(formattedAccess);
 
   // here we need to do role based getting
   const posts = await sequelize
@@ -49,14 +51,9 @@ router.get("/blog/previews", async (req, res) => {
       console.log("Error:", err);
     });
 
-  console.log("All posts:", JSON.stringify(posts, null, 2));
+  // console.log("All posts:", JSON.stringify(posts, null, 2));
   return res.json({ posts: posts, access: access });
 });
-
-// // decompress all the posts
-// for (let i = 0; i < posts.length; i++) {
-//   posts[i].content = await decompress(posts[i].content);
-// }
 
 router.get("/blog/post", async (req, res) => {
   const userRole = req.cookies.userRole;
@@ -76,7 +73,7 @@ router.get("/blog/post", async (req, res) => {
 
   // if no access
   if (permission === null) {
-    return res.status(400).json({ message: "Insufficient perms to view post" });
+    return res.status(401).json({ message: "Insufficient perms to view post" });
   }
 
   var post = await sequelize.query(
@@ -102,9 +99,20 @@ router.get("/blog/post", async (req, res) => {
 
 // route to update posts
 router.put("/blog/post", async (req, res) => {
-  // console.log(req.cookies);
+  console.log(req.cookies);
   const params = req.body;
   console.log(params);
+
+  // check if user has perms to update
+  const author = await BlogPost.findOne({
+    where: {
+      postId: params.postId,
+    },
+  });
+
+  if (author.username != req.cookies.username) {
+    return res.status(401).json({ message: "Not authorized to edit post" });
+  }
 
   // update main table
   const deflatedBody = await deflate(params.body)
@@ -149,7 +157,7 @@ router.put("/blog/post", async (req, res) => {
     });
   }
 
-  return res.json({ message: "Changes saved!" });
+  return res.json({ message: "Changes saved!", postId: params.postId });
 });
 
 // route to delete posts

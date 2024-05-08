@@ -24,8 +24,8 @@ function addJWTtoCookie(req, res, next) {
     if (req?.cookies === undefined) {
       next();
     }
-    console.log(req?.cookies || false);
-    console.log(req.cookies);
+    // console.log(req?.cookies || false);
+    // console.log(req.cookies);
     const decoded = jwtDecode(req.cookies["_auth"]);
     req.cookies = {
       ...req.cookies,

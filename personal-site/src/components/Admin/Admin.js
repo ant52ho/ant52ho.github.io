@@ -27,7 +27,7 @@ function Admin() {
         console.log("Error", err);
       });
     setregistrationData(response.data);
-    console.log("Response: ", response);
+    // console.log("Response: ", response);
   };
 
   useEffect(() => {
@@ -37,12 +37,6 @@ function Admin() {
   const onGridReady = useCallback((params) => {
     gridRef.current = params;
   }, []);
-
-  // const onSelectionChanged = useCallback(() => {
-  //   const selectedRows = gridRef.current.api.getSelectedRows();
-  //   const text = selectedRows.length === 1 ? selectedRows[0] : "";
-  //   console.log(text);
-  // }, []);
 
   const onCellClicked = (e) => {
     if (e.column.colId !== "Decision") {

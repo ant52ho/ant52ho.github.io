@@ -1,9 +1,11 @@
 import axios, { AxiosError } from "axios";
 import PostConfig from "components/PostConfig/PostConfig";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 
 const EditPost = () => {
+  const navigate = useNavigate();
   const [defaultConfig, setDefaultConfig] = useState({
     defaultBody: "",
     defaultSelected: [], // must be in {value:, label:,} format
@@ -11,7 +13,6 @@ const EditPost = () => {
     defaultSummary: "",
   });
   const { postId } = useParams();
-
   async function onSubmit(data) {
     async function updatePost(data) {
       const response = await axios.put(
@@ -26,6 +27,21 @@ const EditPost = () => {
 
     const update = await updatePost(data);
     return update;
+  }
+
+  async function onDelete() {
+    const response = await axios.delete(
+      "http://localhost:5000/api/v1/blog/post",
+      {
+        withCredentials: true,
+        params: {
+          postId: postId,
+        },
+      }
+    );
+
+    navigate("/blog/posts");
+    return response;
   }
 
   // get post data to populate editor
@@ -48,7 +64,7 @@ const EditPost = () => {
         defaultSummary: result.summary,
       };
 
-      console.log(config);
+      // console.log(config);
       setDefaultConfig(config);
     }
 
@@ -73,8 +89,10 @@ const EditPost = () => {
           <h1 className="pb-2">Edit post</h1>
           <PostConfig
             onSubmit={onSubmit}
+            onDelete={onDelete}
             defaultConfig={defaultConfig}
             clearOnSubmit={false}
+            postId={postId}
           />
         </div>
       </div>

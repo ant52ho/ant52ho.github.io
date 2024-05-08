@@ -22,8 +22,6 @@ async function sendRejectEmail(email, reason) {
       `,
   });
   console.log("Sending email");
-  console.log(info.accepted);
-  console.log(info.rejected);
   return true;
 }
 

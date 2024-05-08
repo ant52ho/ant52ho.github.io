@@ -7,6 +7,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { useAuthUser, useAuthHeader } from "react-auth-kit";
 import { jwtDecode } from "jwt-decode";
 import axios, { AxiosError } from "axios";
+import ConfirmationCard from "components/ConfirmationCard/ConfirmationCard";
 
 const CustomToggle = forwardRef(({ children, onClick }, ref) => (
   <>
@@ -28,15 +29,19 @@ const EditButton = ({ username, postId }) => {
   const navigate = useNavigate();
   const getHeader = useAuthHeader();
   const [enabled, setEnabled] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   // const userInfo = jwtDecode(useAuthHeader());
   useEffect(() => {
     const userInfo = getHeader()
       ? jwtDecode(getHeader())
       : { username: "guest", userRole: "guest" };
-    console.log(userInfo);
     setEnabled(userInfo.username === username || userInfo.userRole === "admin");
   }, []);
+
+  const onSelectDelete = () => {
+    setShowDeleteConfirm(true);
+  };
 
   async function onDelete(e) {
     console.log("Deleting post " + postId);
@@ -54,11 +59,21 @@ const EditButton = ({ username, postId }) => {
     }
 
     const res = await deletePost(postId);
+    navigate(0);
     return res;
   }
 
   return (
     <>
+      <ConfirmationCard
+        setShow={setShowDeleteConfirm}
+        show={showDeleteConfirm}
+        onConfirm={() => onDelete()}
+        onDeny={() => {
+          return;
+        }}
+        message="Are you sure you want to delete this post?"
+      />
       <Dropdown
         drop="start"
         // align="end"
@@ -76,7 +91,7 @@ const EditButton = ({ username, postId }) => {
           >
             Edit Post
           </Dropdown.Item>
-          <Dropdown.Item disabled={!enabled} onClick={() => onDelete()}>
+          <Dropdown.Item disabled={!enabled} onClick={() => onSelectDelete()}>
             Delete Post
           </Dropdown.Item>
         </Dropdown.Menu>

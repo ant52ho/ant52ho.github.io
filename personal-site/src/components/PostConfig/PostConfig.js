@@ -8,8 +8,20 @@ import * as formik from "formik";
 import * as yup from "yup";
 import Form from "react-bootstrap/Form";
 import Select from "react-select";
+import { useAuthHeader } from "react-auth-kit";
+import { jwtDecode } from "jwt-decode";
+import ConfirmationCard from "components/ConfirmationCard/ConfirmationCard";
+import { useNavigate } from "react-router-dom";
 
-const PostConfig = ({ onSubmit, defaultConfig, clearOnSubmit = true }) => {
+const PostConfig = ({
+  onSubmit,
+  onDelete,
+  defaultConfig,
+  clearOnSubmit = true,
+  postId = "",
+}) => {
+  const getHeader = useAuthHeader();
+  const navigate = useNavigate();
   const { Formik } = formik;
   const [body, setBody] = useState("");
   const [title, setTitle] = useState("");
@@ -21,60 +33,45 @@ const PostConfig = ({ onSubmit, defaultConfig, clearOnSubmit = true }) => {
     title: yup.string().required(),
     previewSummary: yup.string(),
   });
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [showPostConfirm, setShowPostConfirm] = useState(false);
+  const [formikVals, setFormikVals] = useState({});
+  const [published, setPublished] = useState(postId);
 
   function log() {
     console.log(body);
   }
 
-  useEffect(() => {
-    setBody(defaultConfig.defaultBody);
-    const res = defaultConfig.defaultSelected.map((item) => {
-      // turns list into {value, label}
-      return {
-        value: item,
-        label: item.charAt(0).toUpperCase() + item.slice(1),
-      };
-    });
-    setSelectedOptions(res);
-    setTitle(defaultConfig.defaultTitle);
-    setPreviewSummary(defaultConfig.defaultSummary);
-    // console.log(formikProps);
-    // formikProps.setFieldValue("title", "hello1");
-    // formikProps.setFieldValue("previewSummary", "hello2");
-  }, [defaultConfig]);
+  const onSelectDelete = () => {
+    setShowDeleteConfirm(true);
+  };
 
-  useEffect(() => {
-    async function getRoles() {
-      const response = await axios.get(
-        "http://localhost:5000/api/v1/config/roles"
-      );
+  const onSelectPost = () => {
+    setShowPostConfirm(true);
+  };
 
-      const roles = response.data.roles;
-      const res = roles.map((item) => {
-        // turns list into {value, label}
-        return {
-          value: item,
-          label: item.charAt(0).toUpperCase() + item.slice(1),
-        };
-      });
+  const onFormSubmit = (titles, actions) => {
+    setFormikVals({ titles, actions });
+  };
 
-      setRoles(res);
-    }
-    getRoles();
-  }, []);
-
-  const onFormSubmit = async (titles, actions) => {
+  const publish = async () => {
     setMsg("");
     const selectedOptionsVal = selectedOptions.map((item) => {
       return item.value;
     });
 
     try {
-      const data = { ...titles, body: body, role: selectedOptionsVal };
+      const data = {
+        ...formikVals.titles,
+        body: body,
+        role: selectedOptionsVal,
+      };
       const response = await onSubmit(data);
 
       // clear form contents
-      actions.resetForm({ values: { title: "", previewSummary: "" } });
+      formikVals.actions.resetForm({
+        values: { title: "", previewSummary: "" },
+      });
       // actions.resetForm();
       if (clearOnSubmit) {
         setBody("");
@@ -84,6 +81,7 @@ const PostConfig = ({ onSubmit, defaultConfig, clearOnSubmit = true }) => {
       }
 
       setMsg(response.data.message);
+      setPublished(response.data.postId);
     } catch (err) {
       if (err && err instanceof AxiosError) {
         setMsg(err.response?.data.message);
@@ -95,8 +93,62 @@ const PostConfig = ({ onSubmit, defaultConfig, clearOnSubmit = true }) => {
     }
   };
 
+  useEffect(() => {
+    setBody(defaultConfig.defaultBody);
+    const res = defaultConfig.defaultSelected.map((item) => {
+      return {
+        value: item,
+        label: item.charAt(0).toUpperCase() + item.slice(1),
+      };
+    });
+    setSelectedOptions(res);
+    setTitle(defaultConfig.defaultTitle);
+    setPreviewSummary(defaultConfig.defaultSummary);
+  }, [defaultConfig]);
+
+  useEffect(() => {
+    const header = getHeader();
+    const role = header === "" ? "guest" : jwtDecode(header).userRole;
+    if (role === "guest") {
+      setMsg("Must be registered to create a post");
+    }
+    async function getRoles() {
+      const response = await axios.get(
+        "http://localhost:5000/api/v1/config/writeAccess"
+      );
+      const roles = response.data.config[role];
+      const res = roles.map((item) => {
+        // turns list into {value, label}
+        return {
+          value: item,
+          label: item.charAt(0).toUpperCase() + item.slice(1),
+        };
+      });
+      setRoles(res);
+    }
+    getRoles();
+  }, []);
+
   return (
     <>
+      <ConfirmationCard
+        setShow={setShowDeleteConfirm}
+        show={showDeleteConfirm}
+        onConfirm={() => onDelete()}
+        onDeny={() => {
+          return;
+        }}
+        message="Are you sure you want to delete this post?"
+      />
+      <ConfirmationCard
+        setShow={setShowPostConfirm}
+        show={showPostConfirm}
+        onConfirm={() => publish()}
+        onDeny={() => {
+          return;
+        }}
+        message="Are you sure you want to save this post?"
+      />
       <Formik
         validationSchema={schema}
         onSubmit={(values, actions) => onFormSubmit(values, actions)}
@@ -147,7 +199,6 @@ const PostConfig = ({ onSubmit, defaultConfig, clearOnSubmit = true }) => {
             <p className="h5 pt-1">Body</p>
             <Editor value={body} setValue={setBody} />
             <p className="h5 pt-3">Settings</p>
-
             <p className="h6 pt-2">Viewable groups</p>
             <Select
               className="w-50"
@@ -158,10 +209,34 @@ const PostConfig = ({ onSubmit, defaultConfig, clearOnSubmit = true }) => {
                 setSelectedOptions(value);
               }}
             />
-            <div className="mt-4 mb-2">{msg}</div>
-            <Button className="w-100" type="submit" onClick={log}>
-              Post!
-            </Button>
+            <div className="mt-2">
+              {/* {msg}{" "} */}
+              {published !== "" ? (
+                <Button
+                  className=""
+                  onClick={() => navigate(`/blog/post/${published}`)}
+                  variant="link"
+                >
+                  {msg + " View post -->"}
+                </Button>
+              ) : null}
+            </div>
+            <div className="w-100 d-flex mt-4">
+              <Button
+                style={{ flex: 1, marginInlineEnd: "1em" }}
+                type="submit"
+                onClick={onSelectPost}
+              >
+                Post!
+              </Button>
+              <Button
+                style={{ flex: 1 }}
+                variant="secondary"
+                onClick={onSelectDelete}
+              >
+                Delete
+              </Button>
+            </div>
           </Form>
         )}
       </Formik>

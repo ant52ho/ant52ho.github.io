@@ -1,0 +1,2 @@
+if you don't add a key prop into a component contained in react router, 
+then if will attempt to save resources when loading the same component

@@ -12,6 +12,7 @@ const s3UrlApi = require("./s3Url");
 const createPostApi = require("./createPost");
 const configApi = require("../config/conf").router;
 const getPostApi = require("./getPost");
+const checkAccessApi = require("./checkAccess");
 
 const router = express.Router();
 
@@ -33,5 +34,6 @@ router.use(s3UrlApi);
 router.use(createPostApi);
 router.use(configApi);
 router.use(getPostApi);
+router.use(checkAccessApi);
 
 module.exports = router;

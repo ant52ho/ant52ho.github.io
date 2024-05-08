@@ -9,7 +9,7 @@ const { promisify } = require("util");
 const deflate = promisify(zlib.deflate);
 
 router.post(
-  "/create-post",
+  "/blog/create",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     const { title, previewSummary, body, role } = req.body;
@@ -62,7 +62,7 @@ router.post(
     }
 
     if (savedPost) {
-      res.send({ message: "success!" });
+      res.send({ message: "success!", postId: postId });
     }
   }
 );
