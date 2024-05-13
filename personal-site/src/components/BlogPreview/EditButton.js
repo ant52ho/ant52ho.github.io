@@ -47,7 +47,7 @@ const EditButton = ({ username, postId }) => {
     console.log("Deleting post " + postId);
     async function deletePost() {
       const response = await axios.delete(
-        "http://localhost:5000/api/v1/blog/post",
+        `${process.env.REACT_APP_SERVER_URL}/blog/post`,
         {
           withCredentials: true,
           params: {

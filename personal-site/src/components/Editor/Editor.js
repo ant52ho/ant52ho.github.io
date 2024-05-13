@@ -37,7 +37,7 @@ export const Editor = ({ value, setValue }) => {
 
       // get secure url from server for file upload
       const response = await axios
-        .get("http://localhost:5000/api/v1/s3-upload-url", {
+        .get(`${process.env.REACT_APP_SERVER_URL}/s3-upload-url`, {
           withCredentials: true,
         })
         .catch((err) => {

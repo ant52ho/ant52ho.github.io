@@ -16,7 +16,7 @@ const EditPost = () => {
   async function onSubmit(data) {
     async function updatePost(data) {
       const response = await axios.put(
-        "http://localhost:5000/api/v1/blog/post",
+        `${process.env.REACT_APP_SERVER_URL}/blog/post`,
         { postId: postId, ...data },
         {
           withCredentials: true,
@@ -31,7 +31,7 @@ const EditPost = () => {
 
   async function onDelete() {
     const response = await axios.delete(
-      "http://localhost:5000/api/v1/blog/post",
+      `${process.env.REACT_APP_SERVER_URL}/blog/post`,
       {
         withCredentials: true,
         params: {
@@ -48,7 +48,7 @@ const EditPost = () => {
   useEffect(() => {
     async function getPost() {
       const response = await axios.get(
-        "http://localhost:5000/api/v1/blog/post",
+        `${process.env.REACT_APP_SERVER_URL}/blog/post`,
         {
           withCredentials: true,
           params: {

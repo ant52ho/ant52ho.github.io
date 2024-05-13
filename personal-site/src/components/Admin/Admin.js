@@ -20,7 +20,7 @@ function Admin() {
 
   const getRegistrations = async () => {
     const response = await axios
-      .get("http://localhost:5000/api/v1/admin/registrations", {
+      .get(`${process.env.REACT_APP_SERVER_URL}/admin/registrations`, {
         withCredentials: true,
       })
       .catch((err) => {

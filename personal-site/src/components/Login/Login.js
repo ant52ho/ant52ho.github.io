@@ -30,13 +30,12 @@ function Login() {
   }, [submitted]);
 
   const onSubmit = async (values) => {
-    console.log("Values: ", values);
     setError("");
     setLoading(true);
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/login",
+        `${process.env.REACT_APP_SERVER_URL}/login`,
         values
       );
 

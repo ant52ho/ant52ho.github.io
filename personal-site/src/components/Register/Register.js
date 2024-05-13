@@ -42,7 +42,7 @@ function Register() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/register",
+        `${process.env.REACT_APP_SERVER_URL}/register`,
         values
       );
       setMsg(response.data.message);

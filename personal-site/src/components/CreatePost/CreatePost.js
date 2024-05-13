@@ -11,7 +11,7 @@ function CreatePost() {
   };
   async function onSubmit(data) {
     const response = await axios.post(
-      "http://localhost:5000/api/v1/blog/create",
+      `${process.env.REACT_APP_SERVER_URL}/blog/create`,
       data,
       {
         withCredentials: true,
@@ -24,7 +24,7 @@ function CreatePost() {
   }
 
   function onDelete() {
-    navigate("/blog/posts");
+    navigate("/blog");
   }
   return (
     <>

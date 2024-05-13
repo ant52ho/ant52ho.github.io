@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
 import axios, { AxiosError } from "axios";
 import Button from "react-bootstrap/Button";
+import ConfirmationCard from "components/ConfirmationCard/ConfirmationCard";
 
 function ButtonRenderer(props) {
   const setMsg = props.setMsg;
   const setSuccess = props.setSuccess;
   const setShowAlert = props.setShowAlert;
   const getRegistrations = props.getRegistrations;
+  const [showAcceptConfirm, setShowAcceptConfirm] = useState(false);
+  const [showRejectConfirm, setShowRejectConfirm] = useState(false);
+
   const buttonClicked = async (params) => {
     setShowAlert(false);
     console.log(params, props.data);
 
     try {
-      const endpoint = `http://localhost:5000/api/v1/register/${
+      const endpoint = `${process.env.REACT_APP_SERVER_URL}/register/${
         params === "Accept" ? "accept" : "reject"
       }`;
 
@@ -43,13 +47,31 @@ function ButtonRenderer(props) {
 
   return (
     <>
+      <ConfirmationCard
+        setShow={setShowAcceptConfirm}
+        show={showAcceptConfirm}
+        onConfirm={() => buttonClicked("Accept")}
+        onDeny={() => {
+          return;
+        }}
+        message="Are you sure you want to accept this user?"
+      />
+      <ConfirmationCard
+        setShow={setShowRejectConfirm}
+        show={showRejectConfirm}
+        onConfirm={() => buttonClicked("Reject")}
+        onDeny={() => {
+          return;
+        }}
+        message="Are you sure you want to reject this user?"
+      />
       <div className="d-flex">
-        <Button variant="primary" onClick={() => buttonClicked("Accept")}>
+        <Button variant="primary" onClick={() => setShowAcceptConfirm(true)}>
           Accept
         </Button>
         <Button
           variant="secondary"
-          onClick={() => buttonClicked("Reject")}
+          onClick={() => setShowRejectConfirm(true)}
           className="ms-1"
         >
           Reject

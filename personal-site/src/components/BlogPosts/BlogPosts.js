@@ -40,7 +40,7 @@ const BlogPosts = () => {
   useEffect(() => {
     async function getData() {
       const response = await axios.get(
-        "http://localhost:5000/api/v1/blog/previews",
+        `${process.env.REACT_APP_SERVER_URL}/blog/previews`,
         {
           withCredentials: true,
         }

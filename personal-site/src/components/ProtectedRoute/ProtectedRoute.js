@@ -29,7 +29,7 @@ const ProtectedRoute = ({ accessType, reject, component }) => {
         }
 
         const response = await axios.get(
-          "http://localhost:5000/api/v1/blog/access",
+          `${process.env.REACT_APP_SERVER_URL}/blog/access`,
           {
             params: params,
             withCredentials: true,

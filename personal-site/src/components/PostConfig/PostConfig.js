@@ -114,7 +114,7 @@ const PostConfig = ({
     }
     async function getRoles() {
       const response = await axios.get(
-        "http://localhost:5000/api/v1/config/writeAccess"
+        `${process.env.REACT_APP_SERVER_URL}/config/writeAccess`
       );
       const roles = response.data.config[role];
       const res = roles.map((item) => {
