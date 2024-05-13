@@ -78,8 +78,8 @@ const Blog = () => {
               <Card className="m-3" style={{ width: "18rem" }}>
                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                 <Card.Body>
-                  <Card.Title>View Blog</Card.Title>
-                  <Card.Text>!!!</Card.Text>
+                  <Card.Title>View Posts</Card.Title>
+                  <Card.Text>See posts!</Card.Text>
                   <Button
                     variant="primary"
                     onClick={() => navigate("/blog/posts")}
@@ -104,7 +104,7 @@ const Blog = () => {
                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                 <Card.Body>
                   <Card.Title>Create Post</Card.Title>
-                  <Card.Text>...</Card.Text>
+                  <Card.Text>Yes, I will moderate them</Card.Text>
                   <Button
                     variant="primary"
                     onClick={() => navigate("/blog/create")}
