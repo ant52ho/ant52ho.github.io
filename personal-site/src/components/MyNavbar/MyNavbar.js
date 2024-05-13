@@ -9,11 +9,20 @@ import logo from "images/logo.png";
 import "./MyNavbar.css";
 import resume from "files/f22resume.pdf";
 import { HashLink as Link } from "react-router-hash-link";
+import { getNavbarIcon } from "utils/iconUtils";
+import { useAuthUser, useAuthHeader } from "react-auth-kit";
+import { jwtDecode } from "jwt-decode";
+
 // import { useState } from "react";
 // import { Link } from "react-router-dom";
 
 const MyNavbar = () => {
   const sizes = [false, "sm", "md", "lg", "xl", "xxl"];
+  const getHeader = useAuthHeader();
+  const userInfo = getHeader()
+    ? jwtDecode(getHeader())
+    : { username: "guest", userRole: "guest" };
+
   const expand = "md";
   return (
     <>
@@ -23,13 +32,8 @@ const MyNavbar = () => {
             <Container fluid className="d-flex justify-content-between">
               <Link to="/#home">
                 <Navbar.Brand>
-                  <img
-                    alt=""
-                    src={logo}
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top navLogo"
-                  />{" "}
+                  {getNavbarIcon(userInfo.userRole)}
+                  {/* {getNavbarIcon()} */}
                 </Navbar.Brand>
               </Link>
               <Link to="/#home" className="text-decoration-none">
@@ -69,21 +73,6 @@ const MyNavbar = () => {
                     <a className="nav-link px-4" href={resume} target="_blank">
                       Resume
                     </a>
-                    {/* <Nav.Link className="px-4" href="/#about">
-                      About
-                    </Nav.Link>
-                    <Nav.Link className="px-4" href="/#experiences">
-                      Experience
-                    </Nav.Link>
-                    <Nav.Link className="px-4" href="/#projects">
-                      Projects
-                    </Nav.Link>
-                    <Nav.Link className="px-4" href="/comingsoon">
-                      Blog
-                    </Nav.Link>
-                    <Nav.Link className="px-4" href={resume}>
-                      Resume
-                    </Nav.Link> */}
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>

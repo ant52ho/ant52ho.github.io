@@ -15,6 +15,7 @@ import Test from "./components/Test/Test";
 import CreatePost from "components/CreatePost/CreatePost";
 import EditPost from "components/EditPost/EditPost";
 import ProtectedRoute from "components/ProtectedRoute/ProtectedRoute";
+import DynamicFavicon from "components/DynamicFavicon/DynamicFavicon";
 
 import {
   BrowserRouter,
@@ -37,6 +38,7 @@ root.render(
       cookieSecure={false}
     >
       <HashRouter>
+        <DynamicFavicon />
         <MyNavbar />
         <div className="pages">
           <Routes>
