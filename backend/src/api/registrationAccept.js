@@ -5,6 +5,7 @@ const Registration = require("../models/registration");
 const router = express.Router();
 const generatePassword = require("generate-password");
 const transporter = require("../email");
+const bcrypt = require("bcrypt");
 
 async function sendEmail(email, password, reason) {
   // send email with password
@@ -34,6 +35,10 @@ router.post("/register/accept", async (req, res) => {
   });
   console.log("Generated password:", password);
 
+  // hash password
+  const salt = await bcrypt.genSalt(10);
+  const secPass = await bcrypt.hash(password, salt);
+
   // define permission
   const userRole = "user";
 
@@ -46,7 +51,8 @@ router.post("/register/accept", async (req, res) => {
   if (alreadyExistsUser) {
     return res.json({ message: "User with email already exists" });
   }
-  const newUser = new User({ fullName: username, email, password, userRole });
+  const newUser = new User({ fullName: username, email, secPass, userRole });
+
   const savedUser = await newUser.save().catch((err) => {
     console.log("Error:", err);
     res.json({ error: "Cannot register user at the moment!" });

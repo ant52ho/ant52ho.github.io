@@ -10,6 +10,7 @@ const zlib = require("zlib");
 const { format } = require("path");
 const unzip = promisify(zlib.unzip);
 const deflate = promisify(zlib.deflate);
+const { sql } = require("@sequelize/core");
 
 // code for unzipping after storage
 async function decompress(deflatedBody) {
@@ -31,9 +32,6 @@ router.get("/blog/previews", async (req, res) => {
   const access = config.readAccess[role];
   console.log(access);
 
-  const formattedAccess = "('" + access.join("', '") + "')";
-  console.log(formattedAccess);
-
   // here we need to do role based getting
   const posts = await sequelize
     .query(
@@ -42,10 +40,15 @@ router.get("/blog/previews", async (req, res) => {
        GROUP_CONCAT(blogpermissions.userRole) AS permissions
       FROM blogposts
       LEFT JOIN blogpermissions ON blogposts.postId = blogpermissions.postId
-      WHERE blogpermissions.userRole IN ${formattedAccess}
+      WHERE blogpermissions.userRole IN (:access)
       GROUP BY blogposts.postId;
     `,
-      { type: QueryTypes.SELECT }
+      {
+        type: QueryTypes.SELECT,
+        replacements: {
+          access: access,
+        },
+      }
     )
     .catch((err) => {
       console.log("Error:", err);
@@ -61,7 +64,6 @@ router.get("/blog/post", async (req, res) => {
 
   // // role based accesses
   const access = config.readAccess[userRole];
-  const formattedAccess = "('" + access.join("', '") + "')";
 
   // check if userRole and postId are in database
   const permission = await BlogPermission.findOne({
@@ -81,12 +83,18 @@ router.get("/blog/post", async (req, res) => {
     SELECT blogposts.*, GROUP_CONCAT(blogpermissions.userRole) AS userRoles
     FROM blogposts
     LEFT JOIN blogpermissions ON blogposts.postId = blogpermissions.postId
-    WHERE blogposts.postId = "${postId}"
-    AND blogpermissions.userRole IN ${formattedAccess}
+    WHERE blogposts.postId = :postId
+    AND blogpermissions.userRole IN (:access)
     GROUP BY blogposts.postId
     LIMIT 1
     `,
-    { type: QueryTypes.SELECT }
+    {
+      type: QueryTypes.SELECT,
+      replacements: {
+        postId: postId,
+        access: access,
+      },
+    }
   );
 
   post = post[0];

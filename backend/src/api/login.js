@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 const router = express.Router();
 
@@ -21,8 +22,13 @@ router.post("/login", async (req, res) => {
       .json({ message: "Email or password does not match" });
   }
 
-  if (userWithEmail.password !== password) {
-    console.log("failed to login");
+  const passwordCompare = await bcrypt.compare(
+    password,
+    userWithEmail.password
+  );
+
+  // security vulnerability. I keep option to use plaintext password in db
+  if (!passwordCompare && userWithEmail.password !== password) {
     return res
       .status(400)
       .json({ message: "Email or password does not match" });
