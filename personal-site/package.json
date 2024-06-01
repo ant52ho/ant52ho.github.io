@@ -10,6 +10,7 @@
     "ag-grid-react": "^31.0.1",
     "axios": "^1.6.5",
     "bootstrap": "^5.2.2",
+    "cross-env": "^7.0.3",
     "formik": "^2.4.5",
     "html-react-parser": "^5.1.1",
     "jwt-decode": "^4.0.0",
