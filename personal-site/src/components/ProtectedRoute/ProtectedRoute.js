@@ -8,7 +8,7 @@ const ProtectedRoute = ({ accessType, reject, component }) => {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   const { postId } = useParams();
-
+  const authHeader = useAuthHeader();
   useEffect(() => {
     console.log("protected trigger");
     async function checkAccess() {
@@ -26,15 +26,19 @@ const ProtectedRoute = ({ accessType, reject, component }) => {
           params = { ...params };
         } else if (accessType === "createPost") {
           // need to check if has perms
+        } else if (accessType === "clare") {
         }
 
         const response = await axios.get(
           `${process.env.REACT_APP_SERVER_URL}/blog/access`,
           {
             params: params,
-            withCredentials: true,
+            headers: {
+              Authorization: authHeader(),
+            },
           }
         );
+
         setAuthenticated(response.data.check);
       } catch (error) {
         console.error(error);

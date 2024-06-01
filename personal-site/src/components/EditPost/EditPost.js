@@ -3,6 +3,7 @@ import PostConfig from "components/PostConfig/PostConfig";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import { useAuthHeader } from "react-auth-kit";
 
 const EditPost = () => {
   const navigate = useNavigate();
@@ -13,13 +14,16 @@ const EditPost = () => {
     defaultSummary: "",
   });
   const { postId } = useParams();
+  const authHeader = useAuthHeader();
   async function onSubmit(data) {
     async function updatePost(data) {
       const response = await axios.put(
         `${process.env.REACT_APP_SERVER_URL}/blog/post`,
         { postId: postId, ...data },
         {
-          withCredentials: true,
+          headers: {
+            Authorization: authHeader(),
+          },
         }
       );
       return response;
@@ -33,7 +37,9 @@ const EditPost = () => {
     const response = await axios.delete(
       `${process.env.REACT_APP_SERVER_URL}/blog/post`,
       {
-        withCredentials: true,
+        headers: {
+          Authorization: authHeader(),
+        },
         params: {
           postId: postId,
         },
@@ -50,7 +56,9 @@ const EditPost = () => {
       const response = await axios.get(
         `${process.env.REACT_APP_SERVER_URL}/blog/post`,
         {
-          withCredentials: true,
+          headers: {
+            Authorization: authHeader(),
+          },
           params: {
             postId: postId,
           },

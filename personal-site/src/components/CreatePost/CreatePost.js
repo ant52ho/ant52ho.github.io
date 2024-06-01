@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
 import PostConfig from "components/PostConfig/PostConfig";
 import { useNavigate } from "react-router-dom";
+import { useAuthHeader } from "react-auth-kit";
 function CreatePost() {
   const navigate = useNavigate();
   const defaultConfig = {
@@ -9,14 +10,15 @@ function CreatePost() {
     defaultTitle: "",
     defaultSummary: "",
   };
+  const authHeader = useAuthHeader();
   async function onSubmit(data) {
     const response = await axios.post(
       `${process.env.REACT_APP_SERVER_URL}/blog/create`,
       data,
       {
-        withCredentials: true,
         headers: {
           "Content-Type": "application/json",
+          Authorization: authHeader(),
         },
       }
     );

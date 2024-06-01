@@ -13,15 +13,44 @@ import { getNavbarIcon } from "utils/iconUtils";
 import { useAuthUser, useAuthHeader } from "react-auth-kit";
 import { jwtDecode } from "jwt-decode";
 
-// import { useState } from "react";
-// import { Link } from "react-router-dom";
+function selectNavlinks(user) {
+  const links = [
+    { to: "/#about", label: "About", className: "nav-link px-4" },
+    { to: "/#experiences", label: "Experience", className: "nav-link px-4" },
+    { to: "/#projects", label: "Projects", className: "nav-link px-4" },
+    { to: "/blog", label: "Blog", className: "nav-link px-4" },
+    {
+      href: resume,
+      label: "Resume",
+      target: "_blank",
+      className: "nav-link px-4",
+    },
+  ];
+
+  const clareLinks = [
+    {
+      to: "/clare",
+      label: "Clare",
+      className: "nav-link px-4",
+      style: { backgroundColor: "#e5737a", color: "white" },
+    },
+    { to: "/blog", label: "Blog", className: "nav-link px-4" },
+  ];
+
+  if (user.userRole && user.userRole === "clare") {
+    return clareLinks;
+  } else {
+    return links;
+  }
+}
 
 const MyNavbar = () => {
   const sizes = [false, "sm", "md", "lg", "xl", "xxl"];
-  const getHeader = useAuthHeader();
-  const userInfo = getHeader()
-    ? jwtDecode(getHeader())
+  const authHeader = useAuthHeader();
+  const userInfo = authHeader()
+    ? jwtDecode(authHeader())
     : { username: "guest", userRole: "guest" };
+  const links = selectNavlinks(userInfo);
 
   const expand = "md";
   return (
@@ -31,10 +60,7 @@ const MyNavbar = () => {
           <Navbar collapseOnSelect expand={expand} bg="dark" variant="dark">
             <Container fluid className="d-flex justify-content-between">
               <Link to="/#home">
-                <Navbar.Brand>
-                  {getNavbarIcon(userInfo.userRole)}
-                  {/* {getNavbarIcon()} */}
-                </Navbar.Brand>
+                <Navbar.Brand>{getNavbarIcon(userInfo.userRole)}</Navbar.Brand>
               </Link>
               <Link to="/#home" className="text-decoration-none">
                 <Navbar.Brand>Anthony Ho</Navbar.Brand>
@@ -54,25 +80,33 @@ const MyNavbar = () => {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                   <Nav className="justify-content-md-end justify-content-start flex-grow-1 navText">
-                    {/* <Nav className="justify-content-between pe-3"> */}
-                    {/* <a href="#about">
-                      <div className="navText border">Hello</div>
-                    </a> */}
-                    <Link to="/#about" className="nav-link px-4">
-                      About
-                    </Link>
-                    <Link to="/#experiences" className="nav-link px-4">
-                      Experience
-                    </Link>
-                    <Link to="/#projects" className="nav-link px-4">
-                      Projects
-                    </Link>
-                    <Link to="/blog" className="nav-link px-4">
-                      Blog
-                    </Link>
-                    <a className="nav-link px-4" href={resume} target="_blank">
-                      Resume
-                    </a>
+                    {links.map((link, index) => {
+                      return link.label !== "Resume" ? (
+                        <Link
+                          key={index}
+                          to={link.to}
+                          label={link.label}
+                          className={link.className}
+                          href={link.href}
+                          target={link.target}
+                          style={link.style}
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <a
+                          key={index}
+                          to={link.to}
+                          label={link.label}
+                          className={link.className}
+                          href={link.href}
+                          target={link.target}
+                          style={link.style}
+                        >
+                          {link.label}
+                        </a>
+                      );
+                    })}
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>

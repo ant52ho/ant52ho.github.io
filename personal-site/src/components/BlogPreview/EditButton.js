@@ -27,14 +27,14 @@ const CustomToggle = forwardRef(({ children, onClick }, ref) => (
 
 const EditButton = ({ username, postId }) => {
   const navigate = useNavigate();
-  const getHeader = useAuthHeader();
   const [enabled, setEnabled] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const authHeader = useAuthHeader();
 
   // const userInfo = jwtDecode(useAuthHeader());
   useEffect(() => {
-    const userInfo = getHeader()
-      ? jwtDecode(getHeader())
+    const userInfo = authHeader()
+      ? jwtDecode(authHeader())
       : { username: "guest", userRole: "guest" };
     setEnabled(userInfo.username === username || userInfo.userRole === "admin");
   }, []);
@@ -49,9 +49,11 @@ const EditButton = ({ username, postId }) => {
       const response = await axios.delete(
         `${process.env.REACT_APP_SERVER_URL}/blog/post`,
         {
-          withCredentials: true,
           params: {
             postId: postId,
+          },
+          headers: {
+            Authorization: authHeader(),
           },
         }
       );

@@ -11,7 +11,6 @@ const Projects = () => {
     <>
       <Container fluid className="py-2 projects" id="projects">
         <h1>Projects</h1>
-        {/* <p>Tap on each to learn more!</p> */}
         <Row className="gx-3">
           <Project
             title="ant52ho.github.io"

@@ -37,6 +37,7 @@ const PostConfig = ({
   const [showPostConfirm, setShowPostConfirm] = useState(false);
   const [formikVals, setFormikVals] = useState({});
   const [published, setPublished] = useState(postId);
+  const authHeader = useAuthHeader();
 
   function log() {
     console.log(body);
@@ -114,7 +115,12 @@ const PostConfig = ({
     }
     async function getRoles() {
       const response = await axios.get(
-        `${process.env.REACT_APP_SERVER_URL}/config/writeAccess`
+        `${process.env.REACT_APP_SERVER_URL}/config/writeAccess`,
+        {
+          headers: {
+            Authorization: authHeader(),
+          },
+        }
       );
       const roles = response.data.config[role];
       const res = roles.map((item) => {

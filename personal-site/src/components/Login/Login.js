@@ -43,7 +43,7 @@ function Login() {
         token: response.data.token,
         expiresIn: 3600,
         tokenType: "Bearer",
-        authState: { email: values.email },
+        // authState: { email: values.email },
       });
       setLoading(false);
     } catch (err) {

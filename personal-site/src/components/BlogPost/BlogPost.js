@@ -20,6 +20,7 @@ const BlogPost = () => {
     name: "Error in loading requested resource",
   });
   const navigate = useNavigate();
+  const authHeader = useAuthHeader();
 
   useEffect(() => {
     async function getPost() {
@@ -27,7 +28,9 @@ const BlogPost = () => {
         const response = await axios.get(
           `${process.env.REACT_APP_SERVER_URL}/blog/post`,
           {
-            withCredentials: true,
+            headers: {
+              Authorization: authHeader(),
+            },
             params: {
               postId: postId,
             },

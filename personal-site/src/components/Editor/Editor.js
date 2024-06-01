@@ -4,6 +4,7 @@ import EditorToolbar from "./EditorToolbar";
 import axios from "axios";
 import "react-quill/dist/quill.snow.css";
 import "./quillStyles.css";
+import { useAuthHeader } from "react-auth-kit";
 
 // Add sizes to whitelist and register them
 const Size = Quill.import("formats/size");
@@ -17,6 +18,7 @@ Quill.register(Font, true);
 
 export const Editor = ({ value, setValue }) => {
   const quillRef = useRef();
+  const authHeader = useAuthHeader();
 
   // Undo and redo functions for Custom Toolbar
   function undoChange() {
@@ -38,7 +40,9 @@ export const Editor = ({ value, setValue }) => {
       // get secure url from server for file upload
       const response = await axios
         .get(`${process.env.REACT_APP_SERVER_URL}/s3-upload-url`, {
-          withCredentials: true,
+          headers: {
+            Authorization: authHeader(),
+          },
         })
         .catch((err) => {
           console.log("Error", err);

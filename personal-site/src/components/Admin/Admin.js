@@ -8,6 +8,7 @@ import Alert from "react-bootstrap/Alert";
 import Row from "react-bootstrap/Row";
 import ButtonRenderer from "./ButtonRenderer";
 import ExpandedCard from "./ExpandedCard";
+import { useAuthHeader } from "react-auth-kit";
 
 function Admin() {
   const gridRef = useRef();
@@ -17,11 +18,14 @@ function Admin() {
   const [registrationData, setregistrationData] = useState([]);
   const [showExpand, setShowExpand] = useState(false);
   const [info, setInfo] = useState([]);
+  const authHeader = useAuthHeader();
 
   const getRegistrations = async () => {
     const response = await axios
       .get(`${process.env.REACT_APP_SERVER_URL}/admin/registrations`, {
-        withCredentials: true,
+        headers: {
+          Authorization: authHeader(),
+        },
       })
       .catch((err) => {
         console.log("Error", err);

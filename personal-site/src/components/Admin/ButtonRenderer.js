@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios, { AxiosError } from "axios";
 import Button from "react-bootstrap/Button";
 import ConfirmationCard from "components/ConfirmationCard/ConfirmationCard";
+import { useAuthHeader } from "react-auth-kit";
 
 function ButtonRenderer(props) {
   const setMsg = props.setMsg;
@@ -10,6 +11,7 @@ function ButtonRenderer(props) {
   const getRegistrations = props.getRegistrations;
   const [showAcceptConfirm, setShowAcceptConfirm] = useState(false);
   const [showRejectConfirm, setShowRejectConfirm] = useState(false);
+  const authHeader = useAuthHeader();
 
   const buttonClicked = async (params) => {
     setShowAlert(false);
@@ -21,7 +23,11 @@ function ButtonRenderer(props) {
       }`;
 
       const response = await axios
-        .post(endpoint, props.data, { withCredentials: true })
+        .post(endpoint, props.data, {
+          headers: {
+            Authorization: authHeader(),
+          },
+        })
         .then();
 
       console.log(response);

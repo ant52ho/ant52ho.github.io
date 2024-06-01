@@ -3,11 +3,13 @@ import axios from "axios";
 import BlogPreview from "components/BlogPreview/BlogPreview";
 import Form from "react-bootstrap/Form";
 import Select from "react-select";
+import { useAuthHeader } from "react-auth-kit";
 
 const BlogPosts = () => {
   const [data, setData] = useState([]);
   const [access, setAccess] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const authHeader = useAuthHeader();
   const defaultSort = "descending";
 
   const sortData = (value, data) => {
@@ -42,7 +44,9 @@ const BlogPosts = () => {
       const response = await axios.get(
         `${process.env.REACT_APP_SERVER_URL}/blog/previews`,
         {
-          withCredentials: true,
+          headers: {
+            Authorization: authHeader(),
+          },
         }
       );
 
