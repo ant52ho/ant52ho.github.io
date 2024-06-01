@@ -44,7 +44,6 @@ router.post("/login", async (req, res) => {
     process.env.JWT_SECRET
   );
 
-  console.log("Login success");
   res.json({ message: "Welcome back!", token: jwtToken });
 });
 

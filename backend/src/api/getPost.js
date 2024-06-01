@@ -26,8 +26,7 @@ async function decompress(deflatedBody) {
 }
 
 router.get("/blog/previews", async (req, res) => {
-  console.log(req.cookies);
-  const role = req.cookies.userRole;
+  const role = req.jwtPayload.userRole;
 
   const access = config.readAccess[role];
   console.log(access);
@@ -59,7 +58,7 @@ router.get("/blog/previews", async (req, res) => {
 });
 
 router.get("/blog/post", async (req, res) => {
-  const userRole = req.cookies.userRole;
+  const userRole = req.jwtPayload.userRole;
   const postId = req.query.postId;
 
   // // role based accesses
@@ -107,8 +106,9 @@ router.get("/blog/post", async (req, res) => {
 
 // route to update posts
 router.put("/blog/post", async (req, res) => {
-  console.log(req.cookies);
   const params = req.body;
+  const userRole = req.jwtPayload.userRole;
+
   console.log(params);
 
   // check if user has perms to update
@@ -118,7 +118,7 @@ router.put("/blog/post", async (req, res) => {
     },
   });
 
-  if (author.username != req.cookies.username) {
+  if (userRole !== "admin" && author.username !== req.jwtPayload.username) {
     return res.status(401).json({ message: "Not authorized to edit post" });
   }
 

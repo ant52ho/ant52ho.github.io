@@ -51,7 +51,12 @@ router.post("/register/accept", async (req, res) => {
   if (alreadyExistsUser) {
     return res.json({ message: "User with email already exists" });
   }
-  const newUser = new User({ fullName: username, email, secPass, userRole });
+  const newUser = new User({
+    fullName: username,
+    email,
+    password: secPass,
+    userRole,
+  });
 
   const savedUser = await newUser.save().catch((err) => {
     console.log("Error:", err);

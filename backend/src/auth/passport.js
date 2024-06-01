@@ -11,11 +11,11 @@ passport.use(
     {
       // jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       jwtFromRequest: ExtractJwt.fromExtractors([
-        (req) => {
-          const jsonCookie = req.cookies["_auth"];
-          return jsonCookie;
-        },
         ExtractJwt.fromAuthHeaderAsBearerToken(),
+        // (req) => {
+        //   const jsonCookie = req.cookies["_auth"];
+        //   return jsonCookie;
+        // },
       ]),
       secretOrKey: process.env.JWT_SECRET,
     },

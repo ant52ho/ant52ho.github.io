@@ -24,8 +24,10 @@ app.use(bodyParser.json());
 app.use(morgan("dev"));
 app.use(helmet());
 app.use(cors(corsConfig));
-app.use(cookieParser());
-app.use(middlewares.addJWTtoCookie);
+// app.use(cookieParser());
+// app.use(middlewares.addJWTtoCookie);
+// app.use(middlewares.logCookies);
+app.use(middlewares.parseJWT);
 app.use(express.json());
 
 app.get("/", (req, res) => {

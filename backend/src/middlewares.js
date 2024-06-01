@@ -1,5 +1,6 @@
 const { jwtDecode } = require("jwt-decode");
 const { config } = require("./config/conf");
+var jwt = require("jsonwebtoken");
 
 function notFound(req, res, next) {
   res.status(404);
@@ -25,7 +26,6 @@ function addJWTtoCookie(req, res, next) {
       next();
     }
     // console.log(req?.cookies || false);
-    // console.log(req.cookies);
     const decoded = jwtDecode(req.cookies["_auth"]);
     req.cookies = {
       ...req.cookies,
@@ -45,8 +45,43 @@ function addJWTtoCookie(req, res, next) {
   next();
 }
 
+function logCookies(req, res, next) {
+  next();
+}
+
+// Middleware to decode JWT and attach payload to request parameter
+function parseJWT(req, res, next) {
+  const token = req.headers.authorization;
+  if (token) {
+    try {
+      const decoded = jwt.verify(token.split(" ")[1], process.env.JWT_SECRET);
+      req.jwtPayload = decoded;
+    } catch (error) {
+      // Handle invalid or expired token
+      req.jwtPayload = {
+        userRole: config.defaultRole,
+        username: "guest",
+        email: "",
+        id: null,
+      };
+    }
+  } else {
+    req.jwtPayload = {
+      userRole: config.defaultRole,
+      username: "guest",
+      email: "",
+      id: null,
+    };
+  }
+  console.log("JWT payload:", req.jwtPayload);
+
+  next();
+}
+
 module.exports = {
   notFound,
   errorHandler,
   addJWTtoCookie,
+  logCookies,
+  parseJWT,
 };

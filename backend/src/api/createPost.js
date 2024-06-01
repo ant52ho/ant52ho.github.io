@@ -13,9 +13,7 @@ router.post(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     const { title, previewSummary, body, role } = req.body;
-    const { id, email, userRole, username } = req.cookies;
-    console.log(req.cookies);
-    console.log(req.body);
+    const { id, email, userRole, username } = req.jwtPayload;
 
     // strategy:
     // we store in 2db:
