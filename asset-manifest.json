@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3bcced0b.css",
-    "main.js": "/static/js/main.5e840133.js",
+    "main.js": "/static/js/main.e083b403.js",
     "static/js/787.3ba5e41c.chunk.js": "/static/js/787.3ba5e41c.chunk.js",
     "static/media/agneslakejustrev.jpg": "/static/media/agneslakejustrev.83b53472ec018510c1ee.jpg",
     "static/media/apsan1.jpg": "/static/media/apsan1.01bc13238a77deab4f32.jpg",
@@ -14,11 +14,11 @@
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
     "main.3bcced0b.css.map": "/static/css/main.3bcced0b.css.map",
-    "main.5e840133.js.map": "/static/js/main.5e840133.js.map",
+    "main.e083b403.js.map": "/static/js/main.e083b403.js.map",
     "787.3ba5e41c.chunk.js.map": "/static/js/787.3ba5e41c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3bcced0b.css",
-    "static/js/main.5e840133.js"
+    "static/js/main.e083b403.js"
   ]
 }
