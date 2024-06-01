@@ -2,7 +2,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../database");
 
-const BlogPermission = sequelize.define("BlogPermission", {
+const BlogPermission = sequelize.define("blogpermission", {
   postId: {
     type: DataTypes.UUID,
     primaryKey: true,

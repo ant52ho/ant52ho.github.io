@@ -3,7 +3,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../database");
 
-const BlogPost = sequelize.define("BlogPost", {
+const BlogPost = sequelize.define("blogpost", {
   postId: {
     type: DataTypes.UUID,
     primaryKey: true,

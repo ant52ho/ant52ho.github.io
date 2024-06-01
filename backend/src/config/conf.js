@@ -5,7 +5,7 @@ const config = {
   defaultRole: "guest",
   // who can read from who
   readAccess: {
-    guest: ["user"], // ie guest can read what user posts.
+    guest: ["guest"], // ie guest can only read posts posted to guest
     user: ["user", "guest"], // user can read posts meant for guests
     admin: ["guest", "user", "admin", "clare", "ehsan"],
     clare: ["guest", "user", "admin", "clare"],
