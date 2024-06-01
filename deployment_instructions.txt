@@ -1,0 +1,5 @@
+fly apps destroy ant-personal-site-backend
+docker build -t personal_site_backend --progress=plain .
+docker image ls
+fly apps create ant-personal-site-backend
+fly deploy --image ed6fe5c9a9b3 --local-only
