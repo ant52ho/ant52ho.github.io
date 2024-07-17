@@ -7,11 +7,11 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import logo from "images/logo.png";
 import "./MyNavbar.css";
-import resume from "files/f22resume.pdf";
 import { HashLink as Link } from "react-router-hash-link";
 import { getNavbarIcon } from "utils/iconUtils";
 import { useAuthUser, useAuthHeader } from "react-auth-kit";
 import { jwtDecode } from "jwt-decode";
+import { resume } from "../../globals";
 
 function selectNavlinks(user) {
   const links = [
