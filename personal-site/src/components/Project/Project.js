@@ -25,6 +25,9 @@ const Project = ({
 
   const sectionStyle = {
     backgroundImage: `url(${bgImage})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
   };
 
   return (

@@ -7,17 +7,19 @@ const config = {
   readAccess: {
     guest: ["guest"], // ie guest can only read posts posted to guest
     user: ["user", "guest"], // user can read posts meant for guests
-    admin: ["guest", "user", "admin", "clare", "ehsan"],
-    clare: ["guest", "user", "admin", "clare"],
+    friend: ["guest", "user", "friend"],
+    admin: ["guest", "user", "admin", "clare", "ehsan", "friend"],
+    clare: ["guest", "user", "admin", "clare", "friend"],
     ehsan: ["ehsan"],
   },
   // who can write to who
   writeAccess: {
-    user: ["guest", "user", "admin"],
-    admin: ["guest", "user", "admin", "clare", "ehsan"],
-    clare: ["guest", "user", "admin", "clare"],
-    ehsan: ["ehsan"],
     guest: [],
+    user: ["guest", "user", "admin"],
+    friend: ["guest", "user", "admin", "friend"],
+    admin: ["guest", "user", "admin", "clare", "ehsan", "friend"],
+    clare: ["guest", "user", "admin", "clare", "friend"],
+    ehsan: ["ehsan"],
   },
 };
 

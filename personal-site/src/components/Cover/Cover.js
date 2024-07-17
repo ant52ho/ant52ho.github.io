@@ -5,7 +5,8 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import logo from "logo.svg";
-import pic from "images/agneslakejustrev.jpg";
+// import pic from "images/agneslakejustrev.jpg";
+import pic from "images/familypic2.jpg";
 import { HashLink as Link } from "react-router-hash-link";
 // import { Link } from "react-router-dom";
 
@@ -16,7 +17,7 @@ const Cover = () => {
         className="coverContainer d-flex align-items-center justify-content-center"
         id="home"
       >
-        <div className="coolBorder px-2 py-5 p-md-3">
+        <div className="coolBorder px-2 mt-5 py-5 p-md-3">
           <Container className="coverCard d-flex justify-content-center align-items-center flex-column flex-md-row">
             <div>
               <h1 className="py-1 display-6 coverTitle">Hello, I'm</h1>

@@ -10,8 +10,9 @@ import {
   AiFillFilePdf,
 } from "react-icons/ai";
 // import { GrDocumentPdf } from "react-icons/gr";
-import pic from "images/apsan1.jpg";
-import resume from "files/f22resume.pdf";
+// import pic from "images/apsan1.jpg";
+import pic from "images/thingvellir.jpg";
+import { resume } from "../../globals";
 import yorushika from "images/yorushikaBannerCropped.jpg";
 
 const About = () => {
@@ -28,7 +29,7 @@ const About = () => {
             className="d-flex flex-column justify-content-center"
           >
             <p className="m-0">
-              Hello, I'm Anthony Ho. I'm a 2nd year student pursuing a Computer
+              Hello, I'm Anthony Ho. I'm a 4th year student pursuing a Computer
               Science and Business Administration Double Degree at the
               University of Waterloo and Wilfrid Laurier University.
             </p>
@@ -62,7 +63,7 @@ const About = () => {
             <div className="p-2 d-flex flex-column align-items-center justify-content-center">
               <img src={pic} className="aboutImgScale mt-2 grow"></img>
               <span className="aboutImgCaption mt-2">
-                A good day to climb Daegu's Apsan Mountain
+                Iceland 2024 with my good friend Kevin
               </span>
             </div>
           </Col>

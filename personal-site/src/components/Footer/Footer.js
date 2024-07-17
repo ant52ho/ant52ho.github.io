@@ -9,8 +9,8 @@ const Footer = () => {
       <Container fluid className="footer bg-dark p-0">
         <Container fluid className="footerContents py-2">
           <div className="d-flex justify-content-between py-2">
-            <div>© 2022 Anthony Ho</div>
-            <div className="d-md-flex d-none">Built with React</div>
+            <div>© 2024 Anthony Ho</div>
+            <div className="d-md-flex d-none">{"Built with <3"}</div>
             <div className="footerIcons">
               <a href="https://github.com/ant52ho" target="_blank">
                 <AiFillGithub className="footerLogo" />
@@ -23,7 +23,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div className="d-flex">Last Updated: Oct 2022</div>
+          <div className="d-flex">Last Updated: July 2024</div>
         </Container>
       </Container>
     </>
