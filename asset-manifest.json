@@ -1,24 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.3bcced0b.css",
-    "main.js": "/static/js/main.e083b403.js",
+    "main.css": "/static/css/main.50c34b3f.css",
+    "main.js": "/static/js/main.58639e2b.js",
     "static/js/787.3ba5e41c.chunk.js": "/static/js/787.3ba5e41c.chunk.js",
-    "static/media/agneslakejustrev.jpg": "/static/media/agneslakejustrev.83b53472ec018510c1ee.jpg",
-    "static/media/apsan1.jpg": "/static/media/apsan1.01bc13238a77deab4f32.jpg",
     "static/media/uwlogo.png": "/static/media/uwlogo.dc109fc2fdac2f514258.png",
+    "static/media/baby_sheep.jpg": "/static/media/baby_sheep.25f5b977839ef851f884.jpg",
+    "static/media/staples.jpg": "/static/media/staples.738b6419da3589db90da.jpg",
+    "static/media/familypic2.jpg": "/static/media/familypic2.1205b89e599caf5750e9.jpg",
     "static/media/chad logo.png": "/static/media/chad logo.656bebc02c3549d0a197.png",
+    "static/media/thingvellir.jpg": "/static/media/thingvellir.229bf44fd9d817a988c5.jpg",
+    "static/media/huawei.png": "/static/media/huawei.1ed7a72b193f37972012.png",
+    "static/media/maze.png": "/static/media/maze.752cc9dc6434998088dc.png",
     "static/media/yorushikaBannerCropped.jpg": "/static/media/yorushikaBannerCropped.8c1c5cf56a18d4339276.jpg",
     "static/media/heart.png": "/static/media/heart.90141cc4bb9d144204b8.png",
+    "static/media/sunlife.png": "/static/media/sunlife.97ac7542610f867efc64.png",
     "static/media/logo.png": "/static/media/logo.2678d64245b565a74679.png",
     "static/media/f22resume.pdf": "/static/media/f22resume.cbf1081565d371109719.pdf",
+    "static/media/balloon.png": "/static/media/balloon.1df468af8509b7df9f19.png",
+    "static/media/book.jpg": "/static/media/book.591e611867cde8ac46ea.jpg",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
-    "main.3bcced0b.css.map": "/static/css/main.3bcced0b.css.map",
-    "main.e083b403.js.map": "/static/js/main.e083b403.js.map",
+    "main.50c34b3f.css.map": "/static/css/main.50c34b3f.css.map",
+    "main.58639e2b.js.map": "/static/js/main.58639e2b.js.map",
     "787.3ba5e41c.chunk.js.map": "/static/js/787.3ba5e41c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3bcced0b.css",
-    "static/js/main.e083b403.js"
+    "static/css/main.50c34b3f.css",
+    "static/js/main.58639e2b.js"
   ]
 }
