@@ -1,0 +1,45 @@
+Poop channel will be topic based
+
+on frontend, users will be auto subscribed. This makes it so that changes
+from the other user may be viewed
+
+
+
+
+as in 
+/poop/:user:/:command:
+
+users include:
+- anthony
+- clare
+
+commands include:
+- increment
+- decrement
+- get
+
+onIncrement and onDecrement: 
+edit in-mem db associated with user
+
+behind the scenes: 
+- update main db 1x every 4hrs
+
+
+how will it work? 
+client app is directly subscribed. don't need to go through rest api system. 
+client and server need lots of handlers. 
+
+ main client 
+ subscribe to other user
+ query other user data, own data
+ onIncrement: publishes to channel, which updates to inmem db and 
+    messages all subscriber
+
+[join rooms]
+
+
+
+
+
+
+

@@ -3,7 +3,7 @@
 const express = require("express");
 const Registration = require("../models/registration");
 const router = express.Router();
-const transporter = require("../email");
+const transporter = require("../email/index");
 
 async function sendRejectEmail(email, reason) {
   // send email with password

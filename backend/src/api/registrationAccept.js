@@ -4,7 +4,7 @@ const User = require("../models/user");
 const Registration = require("../models/registration");
 const router = express.Router();
 const generatePassword = require("generate-password");
-const transporter = require("../email");
+const transporter = require("../email/index");
 const bcrypt = require("bcrypt");
 
 async function sendEmail(email, password, reason) {
