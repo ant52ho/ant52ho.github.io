@@ -10,6 +10,15 @@ import sunlife from "images/sunlife.png";
 
 const experience = [
   {
+    logo: uwLogo,
+    title: "NDT Research Assistant",
+    employer: "University of Waterloo",
+    date: "September 2024 ~ present",
+    technologies: ["MATLAB"],
+    body: `Developing MATLAB code to control a high-power ultrasonic system from Verasonics for nondestructive evaluation of construction materials.`,
+    link: "/comingsoon",
+  },
+  {
     logo: sunlife,
     title: "Data Engineer",
     employer: "Sun Life Financial",
@@ -25,17 +34,18 @@ const experience = [
     title: "Data Driven Network Researcher",
     employer: "Huawei Technologies",
     date: "January 2023 ~ December 2023",
-    technologies: ["Python"],
+    technologies: ["Python, R"],
     body: `Generated,preprocessed, and analyzed simulated networking datasets using causal inferencing techniques, resulting in error predictions as low as RMSE=4%.
           Studied papers and implemented novel ML models that became integral to the Networking team’s final solution and paper acceptance into USENIX ATC ’24.
-          Well-documented the project’s background and codebase, resulting in flexible and reusable code. Commended by supervisor for good communication andpresentation skills.`,
+          Well-documented the project’s background and codebase, resulting in flexible and reusable code. Commended by supervisor for good communication andpresentation skills.
+          Extended for 8 months.`,
     link: "/comingsoon",
   },
   {
     logo: uwLogo,
     title: "IoT Research Assistant",
     employer: "University of Waterloo",
-    date: "May 2022 ~ August 2023",
+    date: "May 2022 ~ December 2022, May 2023 ~ August 2023",
     technologies: [
       "Python",
       "Bash",
@@ -47,7 +57,8 @@ const experience = [
     ],
     body: `Developed a IoT sensor network for Canadian Pacific Railway capable of analytics, remote update, in-runtime configuration, and OTA updates using Raspberry Pis, cloud technologies (AWS IoT, EC2), and MQTT protocol.
            Designed system for scaling and rapid installation by using a customized IP assignment (DHCP) protocol to seamlessly integrate new sensor stations.
-           Implemented a full-stack dashboard with React & Express for monitoring and data visualization.`,
+           Implemented a full-stack dashboard with React & Express for monitoring and data visualization.
+           Extended for 8 months.`,
     link: "/comingsoon",
   },
   {
