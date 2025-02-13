@@ -3,3 +3,5 @@ run npm run deploy
 
 don't need to worry abt backend folder because 
 script is exclusive to folder
+
+updating resume: change globals.js to point to correct resume

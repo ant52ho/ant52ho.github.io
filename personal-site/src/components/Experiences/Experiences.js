@@ -7,8 +7,19 @@ import reactLogo from "logo.svg";
 import uwLogo from "images/uwlogo.png";
 import huawei from "images/huawei.png";
 import sunlife from "images/sunlife.png";
+import textnow from "images/textnow.png";
 
 const experience = [
+  {
+    logo: textnow,
+    title: "Software Engineer",
+    employer: "TextNow",
+    date: "Jan 2025 ~ present",
+    technologies: ["Go, PHP"],
+    body: `Preventing fraudulent activity by leveraging Go and PHP for concurrent, high-performance communication with gRPC.
+	         Productionized high traffic endpoints (2k/s) using cron jobs and Kubernetes, enabling seamless rollouts with 0 downtime.`,
+    link: "/comingsoon",
+  },
   {
     logo: uwLogo,
     title: "NDT Research Assistant",
@@ -35,10 +46,9 @@ const experience = [
     employer: "Huawei Technologies",
     date: "January 2023 ~ December 2023",
     technologies: ["Python", "R"],
-    body: `Generated,preprocessed, and analyzed simulated networking datasets using causal inferencing techniques, resulting in error predictions as low as RMSE=4%.
-          Studied papers and implemented novel ML models that became integral to the Networking team’s final solution and paper acceptance into USENIX ATC ’24.
-          Well-documented the project’s background and codebase, resulting in flexible and reusable code. Commended by supervisor for good communication andpresentation skills.
-          Extended for 8 months.`,
+    body: `Used machine learning to optimize parameter tuning for the TCP BBR congestion control algorithm, contributing to the team's final solution and paper acceptance into USENIX ATC '24 (< 15% acceptance rate).
+           Researched papers and leveraged a variety of ML paradigms such as Causal Forests, HDBScan and XGBoost. 
+           Generated and analyzed simulated computer network datasets using paper implementations of causal inference, clustering, and feature selection (SHAP, CovSel, PS matching), resulting in error predictions of RMSE = 4%.`,
     link: "/comingsoon",
   },
   {

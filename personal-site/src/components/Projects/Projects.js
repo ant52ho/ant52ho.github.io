@@ -14,6 +14,15 @@ import maze from "images/maze.png";
 
 const projects = [
   {
+    title: "Anthony RAG",
+    date: "Jan 2025",
+    subtitle: "",
+    body: `Step 1 to cloning myself`,
+    articleLink: "/blog",
+    githubLink: "https://github.com/ant52ho/ant-rag/tree/main",
+    technologies: ["Python"],
+  },
+  {
     title: "Personal Blog",
     date: "May 2024",
     subtitle: "",
