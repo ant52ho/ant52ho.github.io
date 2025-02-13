@@ -12,10 +12,10 @@ import textnow from "images/textnow.png";
 const experience = [
   {
     logo: textnow,
-    title: "Software Engineer",
+    title: "Backend Software Engineer",
     employer: "TextNow",
     date: "Jan 2025 ~ present",
-    technologies: ["Go, PHP"],
+    technologies: ["Go", "PHP"],
     body: `Preventing fraudulent activity by leveraging Go and PHP for concurrent, high-performance communication with gRPC.
 	         Productionized high traffic endpoints (2k/s) using cron jobs and Kubernetes, enabling seamless rollouts with 0 downtime.`,
     link: "/comingsoon",
@@ -42,7 +42,7 @@ const experience = [
   },
   {
     logo: huawei,
-    title: "Data Driven Network Researcher",
+    title: "Machine Learning Researcher",
     employer: "Huawei Technologies",
     date: "January 2023 ~ December 2023",
     technologies: ["Python", "R"],
@@ -53,7 +53,7 @@ const experience = [
   },
   {
     logo: uwLogo,
-    title: "IoT Research Assistant",
+    title: "Full-stack Software Engineer",
     employer: "University of Waterloo",
     date: "May 2022 ~ December 2022, May 2023 ~ August 2023",
     technologies: [
