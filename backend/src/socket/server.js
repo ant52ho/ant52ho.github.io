@@ -1,11 +1,10 @@
 const { server } = require("../app");
 const { Server } = require("socket.io");
 const io = new Server(server);
+console.log("socket server on");
 const PoopCache = require("../cache/poopdb");
 const PoopTrack = require("../models/pooptrack");
 const { PoopNotify } = require("../cache/poopNotify");
-
-// okay let's implement a pub sub system now.
 
 // store to db every 4 hours
 const interval = 4 * 60 * 60 * 1000;
@@ -46,7 +45,6 @@ io.on("connection", (socket) => {
   // publish to topic
   // requests take in a command field
   socket.on("publish", (req) => {
-    console.log(req);
     handleCommand(req);
     // io.to(event).emit(event, args);
   });
@@ -74,7 +72,6 @@ function handlePoop(req) {
   const subs = `${type}/${sender}`;
 
   if (cmd == "getData") {
-    console.log(req);
     io.emit(req, PoopCache.db[sender]);
   } else if (cmd == "increment" || cmd == "decrement") {
     // notify all subscribers of sender
@@ -92,6 +89,8 @@ function handlePoop(req) {
   } else if (cmd == "getAllData") {
     io.emit(`${type}/getAllData`, PoopCache.db);
   }
+
+  // console.log(cmd, PoopCache.db);
 }
 
 module.exports = io;

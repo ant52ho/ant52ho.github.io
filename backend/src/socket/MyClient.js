@@ -1,17 +1,23 @@
 const io = require("socket.io-client");
 const port = 5000;
-const ip = "0.0.0.0";
-const socket = io(`http://${ip}:${port}`);
+// const ip = "0.0.0.0";
+// const ip = "137.66.24.2";
+const url = "https://ant-personal-site-backend.fly.dev";
+const socket = io(`${url}:${port}`, {
+  transports: ["websocket"],
+});
+// const socket = io(`http://${ip}:${port}`);
 
 class MyClient {
   constructor(username) {
     this.username = username;
     this.subscribed = [];
     this.port = 5000;
-    this.ip = "0.0.0.0";
-    this.socket = io(`http://${ip}:${port}`);
+    // this.ip = "0.0.0.0";
+    // this.ip = "137.66.24.2";
+    this.socket = socket;
     console.log("Running socket program");
-    console.log(`Connecting to http://${ip}:${port}`);
+    console.log(`Connecting to ${url}:${port}`);
 
     // Handle connection event
     this.socket.on("connect", () => {

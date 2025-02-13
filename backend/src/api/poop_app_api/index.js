@@ -20,7 +20,22 @@ router.post("/dailyentry", async (req, res) => {
 
 // Get cache
 router.get("/dailycache", async (req, res) => {
+  // console.log("Cache value:", PoopCache.db);
   return res.status(200).json(PoopCache.db);
+});
+
+// increment
+router.post("/increment", async (req, res) => {
+  const { user } = req.body;
+  const result = PoopCache.increment(user);
+  return res.status(200).json(result);
+});
+
+// decrement
+router.post("/decrement", async (req, res) => {
+  const { user } = req.body;
+  const result = PoopCache.decrement(user);
+  return res.status(200).json(result);
 });
 
 module.exports = router;

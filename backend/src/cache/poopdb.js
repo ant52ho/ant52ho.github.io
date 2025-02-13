@@ -12,11 +12,16 @@ class PoopCache {
 
   // static sync
   static async sync() {
+    var nowEST = new Date(
+      new Date().toLocaleString("en-US", { timeZone: "America/New_York" })
+    );
+    const curdate = nowEST.toISOString().split("T")[0];
+
     console.log("syncced!");
     for (let key in this.db) {
       const result = await poopTrackController.updateDailyEntry(
         key,
-        this.curdate,
+        curdate,
         this.db[key]
       );
     }
@@ -41,7 +46,7 @@ class PoopCache {
       nowEST.getDate(),
       23,
       59,
-      50,
+      0,
       0
     );
 
@@ -66,6 +71,18 @@ class PoopCache {
     if (this.hasInit == true) return;
     this.hasInit = true;
     this.#scheduleNextRun();
+  }
+
+  static increment(user) {
+    this.db[user] += 1;
+    return this.db;
+  }
+
+  static decrement(user) {
+    if (this.db[user] > 0) {
+      this.db[user] -= 1;
+    }
+    return this.db;
   }
 }
 

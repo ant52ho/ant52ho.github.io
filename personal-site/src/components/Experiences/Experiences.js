@@ -34,7 +34,7 @@ const experience = [
     title: "Data Driven Network Researcher",
     employer: "Huawei Technologies",
     date: "January 2023 ~ December 2023",
-    technologies: ["Python, R"],
+    technologies: ["Python", "R"],
     body: `Generated,preprocessed, and analyzed simulated networking datasets using causal inferencing techniques, resulting in error predictions as low as RMSE=4%.
           Studied papers and implemented novel ML models that became integral to the Networking team’s final solution and paper acceptance into USENIX ATC ’24.
           Well-documented the project’s background and codebase, resulting in flexible and reusable code. Commended by supervisor for good communication andpresentation skills.

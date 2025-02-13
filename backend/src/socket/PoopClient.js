@@ -24,17 +24,17 @@ class PoopClient extends MyClient {
 
   // increment
   increment() {
-    this.socket.emit("publish", { command: `poop/${this.username}/increment` });
+    this.socket.emit("publish", `poop/${this.username}/increment`);
   }
 
   // decrement
   decrement() {
-    this.socket.emit("publish", { command: `poop/${this.username}/decrement` });
+    this.socket.emit("publish", `poop/${this.username}/decrement`);
   }
 
   // get data
   getData() {
-    this.socket.emit("publish", { command: `poop/${this.username}/getData` });
+    this.socket.emit("publish", `poop/${this.username}/getData`);
   }
 
   // hander for get data

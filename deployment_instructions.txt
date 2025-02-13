@@ -1,8 +1,20 @@
+# turn on docker, cd backend
 fly apps destroy ant-personal-site-backend
 docker build -t personal_site_backend --progress=plain .
 docker image ls
 fly apps create ant-personal-site-backend
-fly deploy --image ed6fe5c9a9b3 --local-only
+flyctl deploy --image 4fe69bc6a7c2 --local-only --ha=false
+
+#fly deploy --image 4fe69bc6a7c2 --local-only --ha=false && flyctl scale count 1 -y
+
+# note that we now need to also expose port 5000 by editing the fly toml file
+  [[services.ports]] <<- add under [[services]]
+    port = 5000
+    handlers = ['tls', 'http']
+
+# updating flytoml
+fly status --all
+fly deploy -c fly.toml --image registry.fly.io/ant-personal-site-backend:deployment-01J6GE42JZVN7WA2MQN6QF7HAT
 
 
 # to connect to flyio via mysql workbench
