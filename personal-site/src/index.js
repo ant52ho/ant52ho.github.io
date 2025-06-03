@@ -27,6 +27,7 @@ import ProtectedRoute from "components/ProtectedRoute/ProtectedRoute";
 import DynamicFavicon from "components/DynamicFavicon/DynamicFavicon";
 import ClareBirthday from "components/Clare/ClareBirthday/ClareBirthday";
 import ClareHome from "components/Clare/ClareHome/ClareHome";
+import ClareValentines2025 from "components/Clare/ClareValentines2025/ClareValentines2025";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -111,6 +112,16 @@ root.render(
               />
             }
           />
+          {/* <Route
+              path="/clare/valentines2025"
+              element={<ProtectedRoute
+                accessType="clare"
+                key={"clare"}
+                reject="/"
+                component={<ClareValentines2025 />}
+                />}
+            /> */}
+          <Route path="/test1" element={<ClareValentines2025 />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<App />} />

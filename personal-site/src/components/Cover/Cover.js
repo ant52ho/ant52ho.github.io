@@ -6,7 +6,8 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import logo from "logo.svg";
 // import pic from "images/agneslakejustrev.jpg";
-import pic from "images/familypic2.jpg";
+// import pic from "images/familypic2.jpg";
+import pic from "images/marathon.jpg";
 import { HashLink as Link } from "react-router-hash-link";
 // import { Link } from "react-router-dom";
 

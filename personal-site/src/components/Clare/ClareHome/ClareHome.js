@@ -10,6 +10,7 @@ const linkInfo = [
     text: "Bradford Visit 2",
   },
   { link: "/clare/birthday23", text: "Happy 23rd Birthday!" },
+  { link: "/clare/valentines2025", text: "Valentines 2025" },
 ];
 
 const ClareHome = () => {

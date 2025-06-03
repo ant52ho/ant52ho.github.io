@@ -11,7 +11,8 @@ import {
 } from "react-icons/ai";
 // import { GrDocumentPdf } from "react-icons/gr";
 // import pic from "images/apsan1.jpg";
-import pic from "images/thingvellir.jpg";
+// import pic from "images/thingvellir.jpg";
+import pic from "images/cablecar.jpg";
 import { resume } from "../../globals";
 import yorushika from "images/yorushikaBannerCropped.jpg";
 
@@ -63,7 +64,7 @@ const About = () => {
             <div className="p-2 d-flex flex-column align-items-center justify-content-center">
               <img src={pic} className="aboutImgScale mt-2 grow"></img>
               <span className="aboutImgCaption mt-2">
-                Iceland 2024 with my good friend Kevin
+                My dad and I in a cable car
               </span>
             </div>
           </Col>

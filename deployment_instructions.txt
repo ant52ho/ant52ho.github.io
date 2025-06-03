@@ -1,11 +1,11 @@
 # turn on docker, cd backend
 fly apps destroy ant-personal-site-backend
-docker build -t personal_site_backend --progress=plain .
+docker build --platform=linux/amd64 -t personal_site_backend --progress=plain .
 docker image ls
 fly apps create ant-personal-site-backend
-flyctl deploy --image 4fe69bc6a7c2 --local-only --ha=false
+flyctl deploy --image 5fed0cd6361e --local-only --ha=false
 
-#fly deploy --image 4fe69bc6a7c2 --local-only --ha=false && flyctl scale count 1 -y
+#fly deploy --image 5fed0cd6361e --local-only --ha=false && flyctl scale count 1 -y
 
 # note that we now need to also expose port 5000 by editing the fly toml file
   [[services.ports]] <<- add under [[services]]
