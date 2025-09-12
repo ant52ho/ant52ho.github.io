@@ -47,17 +47,6 @@ const Experience = ({
           <div className="py-2 d-none d-md-block">
             <Technologies technologies={technologies} />
           </div>
-          <div className="d-flex justify-content-end pb-1 pt-3">
-            <Link to={link} target="_blank" className="readMore py-1">
-              <Button
-                variant="outline-secondary"
-                className="readMore"
-                size="lg"
-              >
-                Read More <FaArrowRight />
-              </Button>
-            </Link>
-          </div>
         </Col>
       </Row>
     </>
@@ -65,3 +54,12 @@ const Experience = ({
 };
 
 export default Experience;
+
+// Legacy button code
+// <div className="d-flex justify-content-end pb-1 pt-3">
+//   <Link to={link} target="_blank" className="readMore py-1">
+//     <Button variant="outline-secondary" className="readMore" size="lg">
+//       Read More <FaArrowRight />
+//     </Button>
+//   </Link>
+// </div>;

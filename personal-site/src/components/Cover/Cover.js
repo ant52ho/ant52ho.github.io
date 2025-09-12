@@ -38,10 +38,13 @@ const Cover = () => {
                 <div className="mt-1">Visit on desktop for a</div>
                 <div className="">better experience!</div>
               </div>
-              <div className="coverCaption mt-2">**WIP**</div>
+              {/* <div className="coverCaption mt-2">(code) monkey never cramp</div> */}
             </div>
-            <div className="coverImage m-4 d-none d-md-block">
+            {/* <div className="d-flex flex-column align-items-center justify-content-center"> */}
+            <div className="coverImage m-4 d-none d-md-flex flex-column align-items-center justify-content-center">
+              {/* <div className="coverImage m-4 d-none d-md-block border"> */}
               <img src={pic} className="coverImgScale grow"></img>
+              <div className="coverCaption mt-2">(code) monkey never cramp</div>
             </div>
           </Container>
         </div>

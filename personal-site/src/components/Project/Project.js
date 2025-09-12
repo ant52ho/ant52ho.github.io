@@ -69,7 +69,7 @@ const Project = ({
                       </Button>
                     </a>
                   </Col>
-                  <Col>
+                  {/* <Col>
                     <Link to={articleLink} className="text-decoration-none">
                       <Button
                         variant="outline-secondary"
@@ -79,7 +79,7 @@ const Project = ({
                         More <FaArrowRight className="proBtn" />
                       </Button>
                     </Link>
-                  </Col>
+                  </Col> */}
                 </Row>
                 {/* <div className="d-flex justify-content-end pb-1 pt-3">
                     <a href="#" target="_blank" className="readMore py-1">

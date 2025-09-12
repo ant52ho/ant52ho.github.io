@@ -35,10 +35,16 @@ const About = () => {
               University of Waterloo and Wilfrid Laurier University.
             </p>
             <p className="pt-2">
-              I've done a handful of data-related projects and Python-based
-              software development. Feel free to{" "}
+              My interests are focused on the intersection of Software
+              Engineering and Machine Learning. Through my work experiences,
+              I've had the opportunity to build a solid foundation in both
+              areas. I'm excited by how much there is to learn, and am committed
+              to deepening my expertise in these fields.
+            </p>
+            <p>
+              Feel free to look around my website,{" "}
               <a href={resume} target="_blank" className="resumeLink">
-                view my resume
+                view my resume,
               </a>{" "}
               or contact me at{" "}
               <a href="mailto:anthony52ho@gmail.com">anthony52ho@gmail.com</a>.

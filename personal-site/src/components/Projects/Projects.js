@@ -20,14 +20,15 @@ const projects = [
     body: `Step 1 to cloning myself`,
     articleLink: "/blog",
     githubLink: "https://github.com/ant52ho/ant-rag/tree/main",
-    technologies: ["Python"],
+    technologies: ["Python", "Langchain"],
   },
   {
     title: "Personal Blog",
     date: "May 2024",
     subtitle: "",
     body: `Feel free leave some fun comments yourself :)
-           I thank fly.io for their free hosting services`,
+           I thank fly.io for their free hosting services
+           Check out the blog through the link in the Navbar / Nav window`,
     articleLink: "/blog",
     githubLink: "https://github.com/ant52ho/ant52ho.github.io",
     technologies: ["React", "Express"],

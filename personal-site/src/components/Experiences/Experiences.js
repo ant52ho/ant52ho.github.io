@@ -8,16 +8,33 @@ import uwLogo from "images/uwlogo.png";
 import huawei from "images/huawei.png";
 import sunlife from "images/sunlife.png";
 import textnow from "images/textnow.png";
+import bree from "images/bree.jpeg";
 
 const experience = [
   {
+    logo: bree,
+    title: "Machine Learning Engineer",
+    employer: "Bree Technologies (YC S21)",
+    date: "May 2025 ~ Aug 2025",
+    technologies: ["Python", "TypeScript", "React", "SQL", "AWS", "WandB"],
+    body: `Upgraded the core ML pipeline using large-scale data processing optimizations, achieving >20x in speed improvements. 
+           Boosted OCR results accuracy by >2x using careful experimentation, prompt engineering, and iteration. 
+           Re-architected the previous ML model using a stacked ensemble, raising AUC to 0.94 and forecasted income by 5M+ / year.
+           Migrated and deployed the new ML infrastructure using FastAPI and Modal, reducing cloud compute costs by ~100x.
+           `,
+    link: "/comingsoon",
+  },
+  {
     logo: textnow,
-    title: "Backend Software Engineer",
+    title: "Software Engineer – Backend",
     employer: "TextNow",
-    date: "Jan 2025 ~ present",
-    technologies: ["Go", "PHP"],
-    body: `Preventing fraudulent activity by leveraging Go and PHP for concurrent, high-performance communication with gRPC.
-	         Productionized high traffic endpoints (2k/s) using cron jobs and Kubernetes, enabling seamless rollouts with 0 downtime.`,
+    date: "Jan 2025 ~ Apr 2025",
+    technologies: ["Go", "Kubernetes", "SQL", "AWS", "gRPC"],
+    body: `Deployed features with no downtime on high-stake, high-traffic endpoints (5k/s) using 100% coverage tests and monitoring.
+          Resolved a P0 incident by debugging improper references after working hours, unblocking teams for the next-business day.
+          Jointly architected and rolled out microservices designed for scale and reuse, including a GeoIP service and a bulk disabler.
+          Won the TextNow company hackathon by designing a RAG-based chatbot in Slack, resulting in a $300 company award.
+          `,
     link: "/comingsoon",
   },
   {
@@ -31,13 +48,15 @@ const experience = [
   },
   {
     logo: sunlife,
-    title: "Data Engineer",
+    title: "Software Engineer – Data Engineering",
     employer: "Sun Life Financial",
     date: "January 2024 ~ April 2024",
     technologies: ["Python", "PySpark", "SQL", "AWS"],
-    body: `Played a key role in migrating the CXO department’s codebase from SAS to a DevOps pipeline built on AWS Glue by processing >50k lines of Python-converted SAS.
-           Designed and optimized queries to streamline ETL operations while working on terabytes of user data using AWS-hosted PySpark and SQL in an agile environment.
-           Coordinated workloads across teams and collaborated with Sunlife Engineers to develop the frameworkfor Sunlife’s future cloud environment, resulting in a feature within the company newsletter.`,
+    body: `
+          Finalized a SAS-to-Python compiler using AST traversal, automating code migration and saving 200+ engineering hours. 
+          Used SQL, PySpark, and query optimization to build efficient data pipelines supporting production-scale big data (TBs). 
+          Migrated critical authentication services to AWS using Boto3-based automation, resulting in a company feature.
+           `,
     link: "/comingsoon",
   },
   {
@@ -53,7 +72,7 @@ const experience = [
   },
   {
     logo: uwLogo,
-    title: "Full-stack Software Engineer",
+    title: "Software Engineer – Full-stack",
     employer: "University of Waterloo",
     date: "May 2022 ~ December 2022, May 2023 ~ August 2023",
     technologies: [
@@ -67,8 +86,7 @@ const experience = [
     ],
     body: `Developed a IoT sensor network for Canadian Pacific Railway capable of analytics, remote update, in-runtime configuration, and OTA updates using Raspberry Pis, cloud technologies (AWS IoT, EC2), and MQTT protocol.
            Designed system for scaling and rapid installation by using a customized IP assignment (DHCP) protocol to seamlessly integrate new sensor stations.
-           Implemented a full-stack dashboard with React & Express for monitoring and data visualization.
-           Extended for 8 months.`,
+           Implemented a full-stack dashboard with React & Express for monitoring and data visualization.`,
     link: "/comingsoon",
   },
   {
@@ -95,7 +113,7 @@ const Experiences = () => {
             employer={e.employer}
             date={e.date}
             technologies={e.technologies}
-            body={e.body}
+            body={e.body.trim()}
             link={e.link}
           />
         ))}
