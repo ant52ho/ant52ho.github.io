@@ -19,6 +19,7 @@ function selectNavlinks(user) {
     { to: "/#experiences", label: "Experience", className: "nav-link px-4" },
     { to: "/#projects", label: "Projects", className: "nav-link px-4" },
     { to: "/blog", label: "Blog", className: "nav-link px-4" },
+    { to: "/track-map", label: "Track Map", className: "nav-link px-4" },
     {
       href: resume,
       label: "Resume",

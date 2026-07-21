@@ -12,8 +12,7 @@ import Login from "components/Login/Login";
 import { AuthProvider } from "react-auth-kit";
 import App from "./App";
 import ComingSoon from "./components/ComingSoon/ComingSoon.js";
-import MyNavbar from "./components/MyNavbar/MyNavbar.js";
-import Footer from "./components/Footer/Footer.js";
+import SiteLayout from "components/SiteLayout/SiteLayout";
 import Blog from "./components/Blog/Blog.js";
 import BlogPosts from "components/BlogPosts/BlogPosts";
 import BlogPost from "components/BlogPost/BlogPost";
@@ -28,6 +27,7 @@ import DynamicFavicon from "components/DynamicFavicon/DynamicFavicon";
 import ClareBirthday from "components/Clare/ClareBirthday/ClareBirthday";
 import ClareHome from "components/Clare/ClareHome/ClareHome";
 import ClareValentines2025 from "components/Clare/ClareValentines2025/ClareValentines2025";
+import WebSerial from "components/WebSerial/WebSerial";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -40,11 +40,11 @@ root.render(
   >
     <HashRouter>
       <DynamicFavicon />
-      <MyNavbar />
-      <div className="pages">
+      <SiteLayout>
         <Routes>
           <Route path="/comingsoon" element={<ComingSoon />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/track-map" element={<WebSerial />} />
           <Route path="/blog/posts" element={<BlogPosts />} />
           <Route
             path="/blog/post/:postId"
@@ -127,8 +127,7 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="/test" element={<Test />} />
         </Routes>
-      </div>
-      <Footer />
+      </SiteLayout>
     </HashRouter>
   </AuthProvider>
   // </React.StrictMode>
