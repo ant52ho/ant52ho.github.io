@@ -325,6 +325,7 @@ export function createWebSerialApp({
           const lines = buffer.split("\n");
           buffer = lines.pop() ?? "";
           for (const line of lines) {
+            console.log("[WebSerial]", line);
             handleSerialLine(line);
           }
         }

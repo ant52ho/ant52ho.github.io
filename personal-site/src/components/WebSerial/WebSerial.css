@@ -95,6 +95,7 @@
   width: auto;
   height: auto;
   margin: 0 auto;
+  transform: rotate(180deg);
 }
 
 .webserial-page #svg-container path.track-segment {
