@@ -1,9 +1,6 @@
 .webserial-page {
   --track-base: #8491a3;
   --track-base-opacity: 0.9;
-  --track-reserved: #c9926a;
-  --track-reserved-opacity: 0.95;
-  --track-reserved-width: 6;
   --tooltip-accent: #d4a574;
 
   width: 100vw;
@@ -44,18 +41,27 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  flex: 1 1 20rem;
 }
 
-.webserial-page #reserved-input {
+.webserial-page .trains-input-label {
+  flex: 1 1 100%;
+  align-items: flex-start;
+}
+
+.webserial-page #trains-input {
   flex: 1;
   min-width: 12rem;
+  min-height: 4.5rem;
   padding: 0.45rem 0.6rem;
   border: 1px solid #4a4a56;
   border-radius: 4px;
   background: #141418;
   color: inherit;
   font: inherit;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  resize: vertical;
 }
 
 .webserial-page button {
@@ -75,6 +81,48 @@
 .webserial-page #status {
   font-size: 0.875rem;
   color: #9a9aa8;
+}
+
+.webserial-page #hint {
+  font-size: 0.8125rem;
+  color: #9a9aa8;
+}
+
+.webserial-page #train-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  padding: 0.5rem 1rem;
+  background: #1e1e24;
+  border-bottom: 1px solid #3a3a44;
+}
+
+.webserial-page #train-legend[hidden] {
+  display: none;
+}
+
+.webserial-page .train-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8125rem;
+}
+
+.webserial-page .train-legend-swatch {
+  width: 1.25rem;
+  height: 0.45rem;
+  border-radius: 2px;
+}
+
+.webserial-page .train-legend-path {
+  width: 1.25rem;
+  height: 0.2rem;
+  border-radius: 1px;
+  opacity: 0.35;
+}
+
+.webserial-page .train-legend-label {
+  color: #e8e8ec;
 }
 
 .webserial-page #svg-container {
@@ -105,10 +153,40 @@
   cursor: crosshair;
 }
 
-.webserial-page #svg-container path.track-segment.highlighted {
-  stroke: var(--track-reserved) !important;
-  stroke-opacity: var(--track-reserved-opacity) !important;
-  stroke-width: var(--track-reserved-width) !important;
+.webserial-page #svg-container path.track-segment.track-train-path {
+  stroke: var(--train-stroke) !important;
+  stroke-opacity: 0.35 !important;
+  stroke-width: 4 !important;
+}
+
+.webserial-page #svg-container path.track-segment.track-train-reservation {
+  stroke: var(--train-stroke) !important;
+  stroke-opacity: 1 !important;
+  stroke-width: 6 !important;
+}
+
+.webserial-page #svg-container g.train-marker {
+  pointer-events: none;
+}
+
+.webserial-page #svg-container g.train-marker circle {
+  fill: var(--train-stroke);
+  stroke: #121216;
+  stroke-width: 2;
+}
+
+.webserial-page #svg-container g.train-marker text {
+  fill: #121216;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.webserial-page #svg-container polygon.path-destination-star {
+  fill: var(--train-stroke);
+  stroke: #121216;
+  stroke-width: 2;
+  pointer-events: none;
 }
 
 .webserial-page #tooltip {
@@ -136,10 +214,5 @@
 }
 
 .webserial-page #tooltip .path-id {
-  color: #9a9aa8;
-}
-
-.webserial-page #legend {
-  font-size: 0.8125rem;
   color: #9a9aa8;
 }
