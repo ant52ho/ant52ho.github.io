@@ -4,8 +4,8 @@ import { createWebSerialApp } from "./webSerialApp";
 import "./WebSerial.css";
 
 const DEFAULT_TRAINS = `{trains: [
-{num: 14, path: "A5,BR11C,A3,A4,", reservations: "A5,BR11C,A3,", location: (A5, 0.42)},
-{num: 15, path: "B6,C10,BR14S,C9,", reservations: "B6,C10,", location: (C10, 0.185)},
+{num: 14, path: "A5,BR11C,A3,A4,", reservations: "A5,BR11C,A3,", location: (A5, 420)},
+{num: 15, path: "B6,C10,BR14S,C9,", reservations: "B6,C10,", location: (C10, 185)},
 {num: 17, path: "D7,E8,E9,", reservations: "D7,E8,E9,", location: (E8, 0)},
 ]}`;
 
@@ -59,7 +59,7 @@ const WebSerial = () => {
         </button>
         <span id="hint">
           Live dumps replace all trains each tick · hover a segment for its
-          inkscape label · location is (node, 0–1) · Ctrl+Enter to apply
+          inkscape label · location is (node, 0–1000) · Ctrl+Enter to apply
         </span>
         <span id="status" ref={statusRef} />
       </header>

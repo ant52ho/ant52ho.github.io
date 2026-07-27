@@ -81,7 +81,8 @@ export function createWebSerialApp({
   }
 
   /**
-   * Map a location on a directed segment to a 0–1 fraction along the SVG path.
+   * Map a location on a directed segment to a fraction along the SVG path.
+   * Offset is 0–1000 (divided by 1000 before use).
    * Two-token labels: start at 0%, end at 100%.
    * Three-token shared-track labels (a,b,end): both a and b are at 0%, end at 100%.
    */
@@ -90,7 +91,7 @@ export function createWebSerialApp({
       return null;
     }
 
-    const clampedOffset = Math.max(0, Math.min(1, offset));
+    const clampedOffset = Math.max(0, Math.min(1, offset / 1000));
 
     if (tokens.length === 3) {
       const [startA, startB, end] = tokens;
